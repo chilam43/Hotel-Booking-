@@ -1,0 +1,21 @@
+
+body{
+    background-image: url("2.jpeg");
+}
+.bigcon{
+   height: 500px !important;
+   width: 500px !important;
+    border: black 5px solid;
+    position: absolute;
+   
+}
+
+
+.secondlayer{
+    border: black 5px solid;
+}
+
+.vis{
+    position: relative;
+    visibility: hidden;}
+
