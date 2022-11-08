@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css"
+    />
+    <link rel="stylesheet" href="cal.css" />
+  </head>
+  <body>
+    <!-- form stars -->
+    <div class="secondlayer">
+      <form action="/handin" id="check" method="post">
+        <label for="fname">Check in data</label>
+        <input type="text" id="a" name="in" /><br /><br />
+        <label for="lname">Check out data</label>
+        <input type="text" id="b" name="out" /><br /><br />
+        <label for="lname">total day</label>
+        <input type="text" id="total" name="day" /><br /><br />
+        <input type="submit" value="Submit" />
+      </form>
+
+      <!-- 0000000000 -->
+      <div class="hide">
+        <h6>please selete check in data and check out date</h6>
+      </div>
+      <!-- 00000000000 -->
+    </div>
+    <!-- form end -->
+
+    <div>
+      <!-- cal -->
+      <div class="bigcon">
+        <div id="calendar"></div>
+      </div>
+      <!-- cal end -->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+
+    <script>
+      let i = true;
+      var calendarEl = document.getElementById("calendar");
+
+      document.addEventListener("DOMContentLoaded", function () {
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: "dayGridMonth",
+          selectable: true,
+
+          dateClick: function (info) {
+            console.log(info.dateStr);
+            if (i == true) {
+              document.getElementById("a").value = info.dateStr;
+
+              i = !true;
+            } else {
+              document.getElementById("b").value = info.dateStr;
+
+              if (
+                document.getElementById("a").value >
+                document.getElementById("b").value
+              ) {
+                alert("Wrong");
+              }
+            }
+            let one_day = 1000 * 60 * 60 * 24;
+            let d1 = new Date(document.getElementById("a").value);
+            let d2 = new Date(document.getElementById("b").value);
+            let result = d2 - d1;
+            let total = result / one_day;
+            document.getElementById("total").value = total;
+          },
+        });
+        calendar.render();
+      });
+    </script>
+    <script>
+      let j = true;
+      document.querySelector(".hide").addEventListener("click", function () {
+        if (j == true) {
+          document.querySelector(".bigcon").classList.add("vis");
+
+          j = !true;
+        } else {
+          document.querySelector(".bigcon").classList.remove("vis");
+
+          j = true;
+        }
+      });
+    </script>
+    <script src="cal.js"></script>
+  </body>
+</html>
