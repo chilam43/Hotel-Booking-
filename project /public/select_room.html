@@ -18,8 +18,13 @@
   integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
   crossorigin="anonymous"
 />
+<link
+rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css"
+/>
 <link rel="stylesheet" href="registerStyle.css" />
 <link rel="stylesheet" href="select_room.css" />
+<link rel="stylesheet" href="cal.css" />
 
   </head>
   <body>
@@ -49,19 +54,115 @@
       </button>
  <!--   header ends         -->
 
- <div class="slogan">slogan</div>
+ <div class="slogan"><h1>slogan!!!!!!!!!!!!!!!!!!!!!!!</h1></div>
  <!-- main body -->
  <div class="bigcontain">
    <!-- left and right  -->
    <div class="container">
      <div class="row">
        <!--left   -->
-       <div class="col-sm leftbox">One of three columns</div>
+       <div class="col-sm leftbox">
+        <!-- left big box -->
+         <div class="leftbigbox">
+         
+           <div class="leftupbox ">
+            <div class="leftsmallbox all"><div>| Guest</div><div class="all-left"><div class="adult">Adult</div><div class="child">Child</div></div></div>
+            <div class="leftsmallbox all"><div class="checkbutt">| Selete Check-in and Check out date</div>
+              <!-- cal -->
+      <div class="cal vis">
+        <div id="calendar"></div>
+      </div>
+      <!-- cal end --></div>
+      <div class="leftsmallbox all">
+        <label for="live">Check in date:</label>
+        <input type="text" id="checkinDate" name="in" maxlength="1" size="2" disabled>
+        <label for="out">Check out date:</label>
+        <input type="text" id="checkoutDate" name="out" maxlength="1" size="2" disabled></div>
+           </div>
+           <div class="leftdownbox">
+            <div class="roomtype">
+              <div class="pic">pic</div>
+              <div>Delux Room</div>
+              <div><input type="button" value="Book"></div>
+            </div>
+            <div class="roomtype">
+               <div class="pic">pic</div>
+               <div> Super Room</div>
+            <div><input type="button" value="Book"></div>
+          </div>
+            <div class="roomtype">
+               <div class="pic">pic</div>
+               <div>Big Room</div>
+            <div><input type="button" value="Book"></div>
+          </div>
+            <div class="roomtype">
+               <div class="pic">pic</div>
+               <div>Regular Room</div>
+            <div><input type="button" value="Book"></div>
+          </div>
+           </div>
+         
+         </div>
+
+         <!-- left big box ends -->
+       </div>
        <!-- right -->
-       <div class="col-sm rightbox">One of three columns</div>
+       <div class="col-sm rightbox">
+        <form>
+        <div class="rightbigbox">
+         
+          <div class="rightsmallbox">Your stay</div>
+          <!-- box 1  -->
+          <div class="rightsmallbox">
+            <div class="fixedcheckin">check in time<br>12:00 noon</div>
+            <div class="fixedcheckin">check out time<br>15:00 pm</div>
+          </div>
+          <!-- box 2 -->
+          <div class="rightsmallbox">
+
+          
+            <div>
+            <div>check in date</div>
+            <input type="text" id="checkinDate1" name="in" disabled>
+            </div>
+            <div>
+            <div >check out date</div>
+            <input type="text" id="checkoutDate1" name="out" disabled>
+            </div>
+            <!-- box 3 -->
+          </div>
+          <div class="rightsmallbox">
+            <div>
+              <div>Adule</div>
+              <div id="adult" >0</div>
+              </div>
+              <div>
+              <div >Child</div>
+              <div id="child">0</div>
+              </div>
+        </div> 
+          <!-- last secbox  -->
+          <div class="rightsmallbox">
+            <div class="fixedcheckin">Tota days: |</div>
+            <div class="fixedcheckin" id="totalDay">0</div>
+        </div>
+        <!--  -->
+        
+          <div class="rightsmallbox">
+            <div class="fixedcheckin">Tota: |</div>
+            <div class="fixedcheckin" id="amount">0</div>
+        </div>
+      
+        <div>
+        <input type="submit">
+        </div>
+       </div>
+      </form>
      </div>
+   
    </div>
   </div>
+ </div>
    <!-- main body ends -->
 
 
@@ -73,5 +174,63 @@
       
     <div>服務條款及細則</div>
     </div>
+
+
+    <!-- script  -->
+
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+
+    <script>
+      let i =true;
+      var calendarEl = document.getElementById("calendar");
+
+      document.addEventListener("DOMContentLoaded", function () {
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: "dayGridMonth",
+          selectable: true,
+
+          dateClick: function (info) {
+            console.log(info.dateStr);
+            if (i == true) {
+              document.getElementById("checkinDate").value = info.dateStr;
+              document.getElementById("checkinDate1").value = info.dateStr;
+              i = !true;
+            } else {
+              document.getElementById("checkoutDate").value = info.dateStr;
+              document.getElementById("checkoutDate1").value = info.dateStr;
+
+              if (
+                document.getElementById("checkinDate").value >
+                document.getElementById("checkoutDate").value
+              ) {
+                alert("Wrong");
+              }
+            }
+            let one_day = 1000 * 60 * 60 * 24;
+            let d1 = new Date(document.getElementById("checkinDate").value);
+            let d2 = new Date(document.getElementById("checkoutDate").value);
+            let result = d2 - d1;
+            let total = result / one_day;
+            document.getElementById("totalDay").textContent = total;
+          },
+        });
+        calendar.render();
+      });
+    </script>
+    <script>
+      let j = !true;
+      document.querySelector(".checkbutt").addEventListener("click", function () {
+        if (j == true) {
+          document.querySelector(".cal").classList.add("vis");
+
+          j = !true;
+        } else {
+          document.querySelector(".cal").classList.remove("vis");
+
+          j = true;
+        }
+      });
+    </script>
+    <script src="cal.js"></script>
   </body>
 </html>
