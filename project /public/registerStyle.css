@@ -16,7 +16,7 @@
     color: #304963;
 }
 
-.loginButton {
+.whiteButton {
     background-color: white;
     transition-duration: 0.4s;
     color: black;
@@ -25,12 +25,12 @@
     height: 36px;
 }
 
-.loginButton:hover {
+.whiteButton:hover {
     background-color: #948872;
     color: white;
 }
 
-.registerButton {
+.brownButton {
     background-color: #948872;
     transition-duration: 0.4s;
     color: white;
@@ -39,7 +39,7 @@
     height: 36px;
   }
   
-.registerButton:hover {
+.brownButton:hover {
     background-color: white;
     color: black;
   }
@@ -63,6 +63,24 @@ h1 {
     color: #000000;
 }
 
+.profileInfoHead {
+    height: 43px;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 35px;
+    line-height: 43px;
+/* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: -0.015em;
+
+    color: #686863;
+}
+
 .profileContainer {
     box-sizing: border-box;
 
@@ -73,6 +91,15 @@ h1 {
     background: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 2px;
+}
+
+.ccreateButton{
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+
 }
 
 footer {
