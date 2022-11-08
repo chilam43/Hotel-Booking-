@@ -5,94 +5,124 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-
+    <link rel="stylesheet" href="landing.css" />
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="cal.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
   </head>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    class="icon icon-tabler icon-tabler-firetruck"
+    width="44"
+    height="44"
+    viewBox="0 0 24 24"
+    stroke-width="1.5"
+    stroke="#2c3e50"
+    fill="none"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <circle cx="5" cy="17" r="2" />
+    <circle cx="17" cy="17" r="2" />
+    <path d="M7 18h8m4 0h2v-6a5 5 0 0 0 -5 -5h-1l1.5 5h4.5" />
+    <path d="M12 18v-11h3" />
+    <polyline points="3 17 3 12 12 12" />
+    <line x1="3" y1="9" x2="21" y2="3" />
+    <line x1="6" y1="12" x2="6" y2="8" />
+  </svg>
   <body>
-    <!-- form stars -->
-    <div class="secondlayer">
-      <form action="/handin" id="check" method="post">
-        <label for="fname">Check in data</label>
-        <input type="text" id="a" name="in" /><br /><br />
-        <label for="lname">Check out data</label>
-        <input type="text" id="b" name="out" /><br /><br />
-        <label for="lname">total day</label>
-        <input type="text" id="total" name="day" /><br /><br />
-        <input type="submit" value="Submit" />
-      </form>
+    <header class="p-3 topBar">
+      <div class="container">
+        <div
+          class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
+        >
+          <a
+            href="/"
+            class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"
+          >
+            <i class="fa-solid fa-poo" style="height: 50px"></i>
+            <svg
+              class="bi me-2"
+              width="40"
+              height="32"
+              role="img"
+              aria-label="Bootstrap"
+            >
+              <use xlink:href="#bootstrap"></use>
+            </svg>
+          </a>
 
-      <!-- 0000000000 -->
-      <div class="hide">
-        <h6>please selete check in data and check out date</h6>
+          <ul
+            class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
+          >
+            <li><a href="#" class="nav-link px-2 text-white">Overview</a></li>
+            <li><a href="#" class="nav-link px-2 text-white">Register</a></li>
+            <li><a href="#" class="nav-link px-2 text-white">Wellness</a></li>
+            <li><a href="#" class="nav-link px-2 text-white">Festive</a></li>
+          </ul>
+
+          <div class="text-end">
+            <button type="button" class="loginButton me-2">Login</button>
+            <button type="button" class="registerButton">Register</button>
+          </div>
+        </div>
       </div>
-      <!-- 00000000000 -->
-    </div>
-    <!-- form end -->
+    </header>
 
-    <div>
-      <!-- cal -->
-      <div class="bigcon">
-        <div id="calendar"></div>
+    <i class="fa-regular fa-house-heart"></i>
+
+    <!-- Banner -->
+    <div style="position: relative; width: 100%">
+      <div class="banner overflow-hidden">
+        <img src="IMG_5034 2.png" width="100%" />
       </div>
-      <!-- cal end -->
+
+      <!-- Search-Bar -->
+      <div class="container-banner">
+        <div class="search-bar-container">
+          <div class="search-bar .container">
+            <div class="BookingBar-content">
+              <h5>Reserve</h5>
+              <div class="bookingbar-dateRanger-container">
+                <div class>
+                  <div class="bookingbar-picker-input">
+                    <div class="DateInPut_1">
+                      <!-- <div class="guest-input-label"> </div> -->
+                      <button class="date">Check-In</button>
+                    </div>
+                    <div class="DateInPut_2">
+                      <!-- <div class="guest-input-label"> </div> -->
+                      <button class="date">Check-Out</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="guest-input-container">
+                <div id="children">
+                  <button class="date">Adult, Children</button>
+                </div>
+                <!-- Drop Down Menu -->
+                <div class="guest-input-drop-down">
+                  <div class="guest-dropdown-adult"></div>
+                </div>
+              </div>
+              <button type="submit" class="check-availabilty">
+                Check Availability
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Banner -->
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
-
-    <script>
-      let i = true;
-      var calendarEl = document.getElementById("calendar");
-
-      document.addEventListener("DOMContentLoaded", function () {
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: "dayGridMonth",
-          selectable: true,
-
-          dateClick: function (info) {
-            console.log(info.dateStr);
-            if (i == true) {
-              document.getElementById("a").value = info.dateStr;
-
-              i = !true;
-            } else {
-              document.getElementById("b").value = info.dateStr;
-
-              if (
-                document.getElementById("a").value >
-                document.getElementById("b").value
-              ) {
-                alert("Wrong");
-              }
-            }
-            let one_day = 1000 * 60 * 60 * 24;
-            let d1 = new Date(document.getElementById("a").value);
-            let d2 = new Date(document.getElementById("b").value);
-            let result = d2 - d1;
-            let total = result / one_day;
-            document.getElementById("total").value = total;
-          },
-        });
-        calendar.render();
-      });
-    </script>
-    <script>
-      let j = true;
-      document.querySelector(".hide").addEventListener("click", function () {
-        if (j == true) {
-          document.querySelector(".bigcon").classList.add("vis");
-
-          j = !true;
-        } else {
-          document.querySelector(".bigcon").classList.remove("vis");
-
-          j = true;
-        }
-      });
-    </script>
-    <script src="cal.js"></script>
   </body>
 </html>
