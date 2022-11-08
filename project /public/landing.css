@@ -1,0 +1,138 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topBar {
+  background-color: #686863;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin: 0;
+}
+
+.loginButton {
+  background-color: white;
+  transition-duration: 0.4s;
+  color: black;
+  border-radius: 6px;
+  width: 120px;
+  height: 36px;
+}
+
+.loginButton:hover {
+  background-color: #948872;
+  color: white;
+}
+
+.registerButton {
+  background-color: #948872;
+  transition-duration: 0.4s;
+  color: white;
+  border-radius: 6px;
+  width: 120px;
+  height: 36px;
+}
+
+.registerButton:hover {
+  background-color: white;
+  color: black;
+}
+.banner {
+  width: 100%;
+  height: 400px;
+  position: relative;
+  margin: 0;
+}
+.banner img {
+  width: 100%;
+  /* position: absolute; */
+  /* display: flex;
+  justify-content: center; */
+}
+
+.search-bar {
+  box-sizing: border-box;
+  position: relative;
+  min-height: 1px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0;
+  width: 100%;
+  height: 63px;
+  display: flex;
+  justify-content: center;
+}
+
+.BookingBar-content {
+  background: #ffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  white-space: nowrap;
+  border-radius: 7px;
+}
+
+h5 {
+  padding-left: 20px;
+  padding-right: 40px;
+  padding-top: 10px;
+  display: flex;
+  align-self: center;
+  font-family: "Montserrat";
+  color: #323232;
+}
+
+.bookingbar-picker-input {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  white-space: nowrap;
+  align-self: center;
+}
+
+.date {
+  height: 50px;
+  font-family: "Futura Book", Arial, sans-serif;
+  padding: 11px 20px 9px 20px;
+  background: #ffffff;
+  border: none;
+  color: #686863;
+}
+.check-availabilty {
+  padding: 11px 10px 9px 10px;
+  background: #948872;
+  border-bottom: 0px;
+  border-right: 0px;
+  border-top: 0px;
+  height: 50px;
+  font-family: "Futura Book", Arial, sans-serif;
+  border-radius: 0px 7px;
+  color: #ffffff;
+  transition-duration: 0.4s;
+}
+.check-availabilty:hover {
+  background: white;
+  color: black;
+}
+.guest-input-label {
+  content: "";
+  display: inline-block;
+  width: 0.1rem;
+  height: 2rem;
+  margin-right: 2rem;
+  margin-left: 2rem;
+  background: #d4d4d4;
+}
+.container-banner {
+  height: 650px;
+  width: 100%;
+}
+.search-bar-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.BookingBar-content {
+  top: -20px;
+  position: absolute;
+}
