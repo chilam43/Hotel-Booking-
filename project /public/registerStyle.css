@@ -1,0 +1,117 @@
+.container{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.topBar {
+    background-color: #686863;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.header-link {
+    color: white;
+    text-decoration: none;
+}
+
+.header-link:hover {
+    color: #304963;
+}
+
+.whiteButton {
+    background-color: white;
+    transition-duration: 0.4s;
+    color: black;
+    border-radius: 6px;
+    width: 120px;
+    height: 36px;
+}
+
+.whiteButton:hover {
+    background-color: #948872;
+    color: white;
+}
+
+.brownButton {
+    background-color: #948872;
+    transition-duration: 0.4s;
+    color: white;
+    border-radius: 6px;
+    width: 120px;
+    height: 36px;
+  }
+  
+.brownButton:hover {
+    background-color: white;
+    color: black;
+  }
+
+h1 {
+    width: 228px;
+    height: 49px;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 49px;
+/* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: -0.015em;
+
+    color: #000000;
+}
+
+.profileInfoHead {
+    height: 43px;
+
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 35px;
+    line-height: 43px;
+/* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: -0.015em;
+
+    color: #686863;
+}
+
+.profileContainer {
+    box-sizing: border-box;
+
+    position: relative;
+    width: 1167px;
+    height: 196px;
+
+    background: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+}
+
+.ccreateButton{
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+
+}
+
+footer {
+    color: white;
+    background-color: #686863;
+  }
+
+.footer-link {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-link:hover {
+    color: #304963;
+}

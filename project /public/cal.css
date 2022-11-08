@@ -1,12 +1,16 @@
 
-body{
-    background-image: url("2.jpeg");
+
+
+.checkbutt{
+    position: absolute;
 }
-.bigcon{
+.cal{
    height: 500px !important;
    width: 500px !important;
     border: black 5px solid;
     position: absolute;
+    top: 450px;
+    background-color:#FAFAFA;
    
 }
 

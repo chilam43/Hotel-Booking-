@@ -1,0 +1,125 @@
+.bigcontain{
+    background-color: #FFFFFF;
+   display: flex;
+  
+}
+
+.all-left{
+    display: flex;
+    justify-content:space-between;
+    padding: 3px;
+}
+.all{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+  padding: 3px;
+ 
+}
+.slogan{
+    height: 200px;
+    width: 100%;
+}
+
+.rightbox{
+    background-color: #FFFFFF;
+    width: fit-content;
+  
+}
+
+
+.leftbox{
+   
+    width:fit-content ;
+   
+}
+.leftbigbox{
+    border: solid #DFDEDC 3px;
+    border-radius: 10px;
+   
+}
+.leftupbox{
+  
+    display: flex;
+    padding: 10px;
+    margin: 0px 10px;
+    
+}
+.leftsmallbox{
+  
+    width: 300px;
+    height: 150px;
+    background: #FFFFFF;
+    border: 1px solid #DFDEDC;
+    border-radius: 7px;
+  
+
+}
+.leftdownbox{
+    border-radius: solid #DFDEDC 3px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+   
+  
+    
+}
+.roomtype{
+    height: 200px;
+    width: 900px;
+    border-radius: solid #DFDEDC 3px;
+    background-color:#FAFAFA;
+    display: flex;
+   
+  
+    align-items: center;
+    
+}
+.pic{
+   height: 50px;
+   width: 50px;
+   border-radius: solid #DFDEDC 3px;
+}
+
+.rightbigbox{
+    border-radius:10px;
+    border: solid #DFDEDC 3px;;
+max-width: 300px;
+margin: 20px;
+}
+
+.rightsmallbox{
+    height: 100px;
+    border-radius: solid #DFDEDC 5px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+.rightsmallbox1{
+    height: 100px;
+    border-radius: solid #DFDEDC 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.fixedcheckin{
+    width: fit-content;
+   
+}
+#checkinDate{
+   width: 150px;
+   
+}
+
+#checkoutDate{
+    width: 150px;
+}
+#checkinDate1{
+    width: 100px;
+    
+ }
+ 
+ #checkoutDate1{
+     width: 100px;
+ }
+ 
