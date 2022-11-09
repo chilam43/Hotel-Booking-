@@ -108,28 +108,30 @@ href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css"
         <label for="out">Check out date:</label>
         <input type="text" id="checkoutDate" name="out" maxlength="1" size="2" disabled></div>
            </div>
+            <!-- left up box end    left down box starts -->
            <div class="leftdownbox">
             <div class="roomtype">
               <div ><img class="pic" src="./pic/rm1.jpeg"></div>
-              <div class="roomtypemiddle">Delux Room</div>
+              <div class="roomtypeA">A</div>
               <div><input id="bookA"type="button" value="Book"></div>
               &nbsp;&nbsp;&nbsp;<h7>$</h7><div id="priceA">500</div>
             </div>
             <div class="roomtype">
                <div ><img class="pic" src="./pic/rm2.jpeg"></div>
-               <div class="roomtypemiddle"> Super Room</div>
+               <div class="roomtypeB">B</div>
             <div><input id="bookB"type="button" value="Book"></div>
             &nbsp;&nbsp;&nbsp;<h7>$</h7><div id="priceB">400</div>
           </div>
             <div class="roomtype">
                <div ><img class="pic" src="./pic/rm3.jpeg"></div>
-               <div class="roomtypemiddle">Big Room</div>
+               <div class="roomtypeC">C</div>
+               
             <div><input id="bookC" type="button" value="Book"></div>
             &nbsp;&nbsp;&nbsp;<h7>$</h7><div id="priceC">300</div>
           </div>
             <div class="roomtype">
                <div ><img class="pic" src="./pic/rm4.jpeg"></div>
-               <div class="roomtypemiddle">Regular Room</div>
+               <div class="roomtypeD">D</div>
             <div><input id="bookD" type="button" value="Book"></div>
             &nbsp;&nbsp;&nbsp;<h7>$</h7><div id="priceD">200</div>
           </div>
@@ -141,7 +143,7 @@ href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css"
        </div>
        <!-- right -->
        <div class="col-sm rightbox">
-        <form>
+        <form action="/book">
         <div class="rightbigbox">
          
           <div class="rightsmallbox">Your stay</div>
@@ -164,6 +166,7 @@ href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css"
             </div>
             <!-- box 3 -->
           </div>
+           <!-- box2 end box 3 -->
           <div class="rightsmallbox">
             <div>
               <div>Adule</div>
@@ -174,28 +177,36 @@ href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css"
               <div id="child">0</div>
               </div>
         </div> 
-          <!-- last secbox  -->
+        <!--room tye  -->
+        <div class="rightsmallbox">
+          <div class="fixedcheckin">Tota days: |</div>
+          <div class="fixedcheckin" id="totalDay">0</div>
+      </div>
+          <!-- room type end day -->
           <div class="rightsmallbox">
-            <div class="fixedcheckin">Tota days: |</div>
-            <div class="fixedcheckin" id="totalDay">0</div>
+            <div>Room type |</div>
+            <div class="choosetype"></div>
         </div>
-        <!--  -->
+        <!-- day total -->
         
           <div class="rightsmallbox">
             <div class="fixedcheckin">Tota: |</div>
             <div class="fixedcheckin" id="amount">0</div>
         </div>
-      
+      <!--  total submit -->
         <div>
         <input type="submit">
         </div>
+        <!-- submit end  -->
        </div>
       </form>
      </div>
+      <!-- col-sm rightbox end -->
+    </div>
    
    </div>
   </div>
- </div>
+
    <!-- main body ends -->
  
 
@@ -276,6 +287,7 @@ document.addEventListener('click', (event) => {
     
     let price= parseInt (document.querySelector("#priceA").textContent)
     let day=  parseInt(document.getElementById("totalDay").textContent)
+    document.querySelector(".choosetype").textContent=document.querySelector(".roomtypeA").textContent
     console.log(price)
     console.log(day)
     let sum = price *day
@@ -286,6 +298,7 @@ document.addEventListener('click', (event) => {
   
     let price= parseInt (document.querySelector("#priceB").textContent)
     let day=  parseInt(document.getElementById("totalDay").textContent)
+    document.querySelector(".choosetype").textContent=document.querySelector(".roomtypeB").textContent
     console.log(price)
     console.log(day)
     let sum = price *day
@@ -296,6 +309,7 @@ document.addEventListener('click', (event) => {
    
     let price= parseInt (document.querySelector("#priceC").textContent)
     let day=  parseInt(document.getElementById("totalDay").textContent)
+    document.querySelector(".choosetype").textContent=document.querySelector(".roomtypeC").textContent
     console.log(price)
     console.log(day)
     let sum = price *day
@@ -306,6 +320,7 @@ document.addEventListener('click', (event) => {
     
     let price= parseInt (document.querySelector("#priceD").textContent)
     let day=  parseInt(document.getElementById("totalDay").textContent)
+    document.querySelector(".choosetype").textContent=document.querySelector(".roomtypeD").textContent
     console.log(price)
     console.log(day)
     let sum = price *day
@@ -313,6 +328,7 @@ document.addEventListener('click', (event) => {
    })
 
     </script>
+  
     <script src="cal.js"></script>
   </body>
 </html>
