@@ -19,6 +19,8 @@
 .slogan{
     height: 200px;
     width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .rightbox{
@@ -124,6 +126,10 @@ margin: 20px;
  }
  
 .pic{
+   height: 200px;
+   width:  200px;
+}
+.roomtypemiddle{
     height: 200px;
-    width: 200px;
+   width:  400px;
 }

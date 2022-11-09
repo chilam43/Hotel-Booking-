@@ -54,7 +54,7 @@ href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css"
       </button>
  <!--   header ends         -->
 
- <div class="slogan"><h1>slogan!!!!!!!!!!!!!!!!!!!!!!!</h1></div>
+ <div class="slogan"><h6>The Peninsula Hong Kong is committed to the highest levels of hygiene, safety and security for our guests. In light of the latest Government regulations and in an effort to protect the health and safety of both our guests and staff members, all guests are required to check-in using the LeaveHomeSafe App, provide proof of receiving the third COVID-19 vaccine dose or the second dose (received within six months), vaccination medical exemption certificate, or recovery record upon entry to the hotel, restaurants and facilities. Each table can seat up to eight guests.</h6></div>
  <!-- main body -->
  <div class="bigcontain">
    <!-- left and right  -->
@@ -81,24 +81,28 @@ href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css"
            </div>
            <div class="leftdownbox">
             <div class="roomtype">
-              <div class="pic"><img src="./pic/rm1.jpeg"></div>
-              <div>Delux Room</div>
-              <div><input type="button" value="Book"></div>
+              <div ><img class="pic" src="./pic/rm1.jpeg"></div>
+              <div class="roomtypemiddle">Delux Room</div>
+              <div><input id="bookA"type="button" value="Book"></div>
+              &nbsp;&nbsp;&nbsp;<h7>$</h7><div id="priceA">500</div>
             </div>
             <div class="roomtype">
-               <div class="pic"><img src="./pic/rm2.jpeg"></div>
-               <div> Super Room</div>
-            <div><input type="button" value="Book"></div>
+               <div ><img class="pic" src="./pic/rm2.jpeg"></div>
+               <div class="roomtypemiddle"> Super Room</div>
+            <div><input id="bookB"type="button" value="Book"></div>
+            &nbsp;&nbsp;&nbsp;<h7>$</h7><div id="priceB">400</div>
           </div>
             <div class="roomtype">
-               <div class="pic"><img src="./pic/rm3.jpeg"></div>
-               <div>Big Room</div>
-            <div><input type="button" value="Book"></div>
+               <div ><img class="pic" src="./pic/rm3.jpeg"></div>
+               <div class="roomtypemiddle">Big Room</div>
+            <div><input id="bookC" type="button" value="Book"></div>
+            &nbsp;&nbsp;&nbsp;<h7>$</h7><div id="priceC">300</div>
           </div>
             <div class="roomtype">
-               <div class="pic"><img src="./pic/rm4.jpeg"></div>
-               <div>Regular Room</div>
-            <div><input type="button" value="Book"></div>
+               <div ><img class="pic" src="./pic/rm4.jpeg"></div>
+               <div class="roomtypemiddle">Regular Room</div>
+            <div><input id="bookD" type="button" value="Book"></div>
+            &nbsp;&nbsp;&nbsp;<h7>$</h7><div id="priceD">200</div>
           </div>
            </div>
          
@@ -218,18 +222,67 @@ href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css"
       });
     </script>
     <script>
-      let j = !true;
-      document.querySelector(".checkbutt").addEventListener("click", function () {
-        if (j == true) {
-          document.querySelector(".cal").classList.add("vis");
+   
+   const target = document.querySelector('.checkbutt')
 
-          j = !true;
-        } else {
-          document.querySelector(".cal").classList.remove("vis");
+document.addEventListener('click', (event) => {
+  const withinBoundaries = event.composedPath().includes(target)
 
-          j = true;
-        }
-      });
+  if (withinBoundaries) {
+    console.log("click")
+   document.querySelector(".cal").classList.remove("vis")
+  } else {
+    console.log("remove")
+    document.querySelector(".cal").classList.add("vis")
+  } 
+})
+  </script> 
+   
+ 
+
+
+
+    <script>
+   document.querySelector("#bookA").addEventListener("click", function(){
+    
+    let price= parseInt (document.querySelector("#priceA").textContent)
+    let day=  parseInt(document.getElementById("totalDay").textContent)
+    console.log(price)
+    console.log(day)
+    let sum = price *day
+     document.querySelector("#amount").textContent=sum
+   })
+
+   document.querySelector("#bookB").addEventListener("click", function(){
+  
+    let price= parseInt (document.querySelector("#priceB").textContent)
+    let day=  parseInt(document.getElementById("totalDay").textContent)
+    console.log(price)
+    console.log(day)
+    let sum = price *day
+     document.querySelector("#amount").textContent=sum
+   })
+
+   document.querySelector("#bookC").addEventListener("click", function(){
+   
+    let price= parseInt (document.querySelector("#priceC").textContent)
+    let day=  parseInt(document.getElementById("totalDay").textContent)
+    console.log(price)
+    console.log(day)
+    let sum = price *day
+     document.querySelector("#amount").textContent=sum
+   })
+
+   document.querySelector("#bookD").addEventListener("click", function(){
+    
+    let price= parseInt (document.querySelector("#priceD").textContent)
+    let day=  parseInt(document.getElementById("totalDay").textContent)
+    console.log(price)
+    console.log(day)
+    let sum = price *day
+     document.querySelector("#amount").textContent=sum
+   })
+
     </script>
     <script src="cal.js"></script>
   </body>
