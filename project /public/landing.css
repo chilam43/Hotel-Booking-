@@ -69,10 +69,11 @@
   background: #ffff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  /* flex-direction: row; */
+  /* justify-content: space-between; */
   white-space: nowrap;
   border-radius: 7px;
+  height: 50px;
 }
 
 h5 {
@@ -94,7 +95,7 @@ h5 {
 }
 
 .date {
-  height: 50px;
+  /* height: 50px; */
   font-family: "Futura Book", Arial, sans-serif;
   padding: 11px 20px 9px 20px;
   background: #ffffff;
@@ -118,7 +119,7 @@ h5 {
   color: black;
 }
 .guest-input-label {
-  content: "";
+  /* content: ""; */
   display: inline-block;
   width: 0.1rem;
   height: 2rem;
@@ -139,4 +140,99 @@ h5 {
 .BookingBar-content {
   top: -20px;
   position: absolute;
+}
+i {
+  color: #948872;
+  font-size: 20px;
+}
+
+#adult-count {
+  border: none;
+  width: 15px;
+}
+#children-count {
+  border: none;
+  width: 15px;
+}
+
+.label-area {
+  width: 245px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  border: #948872 40px;
+  padding: 10px;
+}
+
+.guest-input-drop-down {
+  width: 300px;
+  /* display: flex;
+    justify-content: center;
+    flex-wrap: wrap; */
+  border-style: solid;
+  border-color: rgb(224, 224, 224);
+  border-width: 0.5px;
+  padding: 20px 30px 20px 30px;
+  position: absolute;
+  background-color: #ffffff;
+}
+em {
+  display: block;
+  width: 0;
+  height: 0;
+  border-width: 0 0.4rem 0.4rem;
+  border-style: solid;
+  border-color: transparent transparent rgb(236, 236, 236);
+  color: aliceblue;
+  position: relative;
+  top: -26px;
+  left: 1rem;
+}
+.guest-dropdown-adult {
+  border-style: solid;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-color: #948872;
+  border-width: 0.5px;
+}
+.close {
+  display: none;
+}
+.close:after {
+  display: show;
+}
+.drop-down-container {
+  display: flex;
+  justify-content: center;
+  width: 230px;
+  height: 50px;
+}
+.btn-minus-c,
+.btn-minus-a,
+.btn-plus-c,
+.btn-plus-a {
+  background-color: white;
+  border: none;
+}
+
+.checkbutt {
+  position: absolute;
+}
+.cal {
+  height: 500px !important;
+  width: 500px !important;
+  border: black 5px solid;
+  position: absolute;
+  top: 450px;
+  background-color: #fafafa;
+}
+
+.secondlayer {
+  border: black 5px solid;
+}
+
+.vis {
+  position: relative;
+  visibility: hidden;
 }
