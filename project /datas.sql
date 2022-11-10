@@ -1,15 +1,28 @@
 CREATE USER admin WITH PASSWORD 'admin' SUPERUSER;
 -- use the code below 
-create database hotel_booking;
 --開DB
-\ c hotel_booking;
+create database hotel_booking;
 -- 入DB
+\ c hotel_booking;
+CREATE TABLE type(
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) not null,
+    price INTEGER not null
+);
 CREATE TABLE room(
     id SERIAL PRIMARY KEY,
     room_number integer not null,
     type_id INTEGER not null,
     FOREIGN KEY (type_id) REFERENCES type(id),
     floor INTEGER not null
+);
+CREATE TYPE title AS ENUM('MR', 'MS', 'MRS', 'Sir', 'Dr', 'Mx');
+CREATE TABLE users(
+    id SERIAL PRIMARY KEY,
+    title title,
+    name VARCHAR(20),
+    email VARCHAR(255),
+    password CHAR(60)
 );
 CREATE TABLE booking_record(
     id SERIAL PRIMARY KEY,
@@ -26,19 +39,6 @@ CREATE TABLE booking_record(
     ref_number char(8) not null,
     UNIQUE(ref_number),
     final_price INTEGER not null
-);
-CREATE TABLE type(
-    id SERIAL PRIMARY KEY,
-    name VARCHAR(255) not null,
-    price INTEGER not null
-);
-CREATE TYPE title AS ENUM('MR', 'MS', 'MRS', 'Sir', 'Dr', 'Mx');
-CREATE TABLE users(
-    id SERIAL PRIMARY KEY,
-    title title,
-    name VARCHAR(20),
-    email VARCHAR(255),
-    password CHAR(60)
 );
 -- CREATE TABLE room(
 --     id SERIAL PRIMARY KEY,

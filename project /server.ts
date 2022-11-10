@@ -7,12 +7,11 @@ import { userRoutes } from "./router/usersRouter";
 import { landing } from "./router/landingRouter";
 import { client } from "./db";
 
+client.connect();
 let app = express();
 
 app.use(express.urlencoded());
 app.use(express.json());
-
-client.connect();
 
 // app.use(SessionMiddleware);
 
