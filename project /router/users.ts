@@ -16,12 +16,12 @@ userRoutes.post("/login", (req, res) => {
   let { username, password } = req.body;
   if (!username) {
     res.status(400);
-    res.end("Missing username");
+    res.json({ status: true, msg: "username fail" });
     return;
   }
   if (!password) {
     res.status(400);
-    res.end("Missing password");
+    return res.json({ status: true, msg: "title fail" });
     return;
   }
   for (let user of users) {
@@ -36,7 +36,27 @@ userRoutes.post("/login", (req, res) => {
 });
 
 userRoutes.post("/register", (req, res) => {
+  let { title, username, email, password } = req.body;
+  if (!title) {
+    res.status(400);
+    res.json({ status: true, msg: "title fail" });
+    return;
+  }
+  if (!username) {
+    res.status(400);
+    res.json({ status: true, msg: "username fail" });
+    return;
+  }
+  if (!email) {
+    res.status(400);
+    res.json({ status: true, msg: "email fail" });
+    return;
+  }
+  if (!password) {
+    res.status(400);
+    res.json({ status: true, msg: "email fail" });
+    return;
+  }
   console.log(req.body);
-  res.status(200);
-  res.json("get name ");
+  return res.json({ status: true, msg: "register successful" });
 });
