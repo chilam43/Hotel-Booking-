@@ -2,15 +2,16 @@ import express from "express";
 import { print } from "listening-on";
 // import path from "path";
 // import { SessionMiddleware } from "/session";
-import { userRoutes } from "./router/users";
+import { userRoutes } from "./router/usersRouter";
 // import { isRedirect } from "node-fetch";
-import { landing } from "./router/landing";
 import { bookingroute } from "./router/select_room";
+import { landing } from "./router/landingRouter";
+import { client } from "./db";
 
+client.connect();
 let app = express();
 
 app.use(express.urlencoded());
-
 app.use(express.json());
 
 // app.use(SessionMiddleware);
