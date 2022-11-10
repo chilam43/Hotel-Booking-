@@ -5,12 +5,12 @@ import { print } from "listening-on";
 import { userRoutes } from "./router/users";
 // import { isRedirect } from "node-fetch";
 import { landing } from "./router/landing";
+import { client } from "./db";
 
 let app = express();
-
 app.use(express.urlencoded());
-
 app.use(express.json());
+client.connect();
 
 // app.use(SessionMiddleware);
 
