@@ -2,7 +2,7 @@ import express from "express";
 import jsonfile from "jsonfile";
 import path from "path";
 
-export let userRoutes = express.Router();
+export const userRoutes = express.Router();
 
 type User = {
   username: string;

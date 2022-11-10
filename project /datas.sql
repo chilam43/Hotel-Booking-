@@ -2,7 +2,8 @@ CREATE USER admin WITH PASSWORD 'admin' SUPERUSER;
 -- use the code below 
 create database hotel_booking;
 --開DB
-\ c hotel_booking -- 入DB
+\ c hotel_booking;
+-- 入DB
 CREATE TABLE room(
     id SERIAL PRIMARY KEY,
     room_number integer not null,
@@ -80,8 +81,8 @@ VALUES ('MS', 'Alice', 'alice@gmail.com', 'alice'),
 --book_record例子
 INSERT INTO booking_record (
         room_id,
-        check_in_data,
-        check_out_data,
+        check_in_date,
+        check_out_date,
         user_id,
         payment_time,
         lock_time,
