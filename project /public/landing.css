@@ -53,7 +53,7 @@
 }
 
 .search-bar {
-  /* box-sizing: border-box; */
+  box-sizing: border-box;
   position: relative;
   min-height: 1px;
   padding-left: 20px;
@@ -102,7 +102,7 @@ h5 {
   border: none;
   color: #686863;
 }
-.check-availabilty {
+.check-availability {
   padding: 11px 10px 9px 10px;
   background: #948872;
   border-bottom: 0px;
@@ -114,7 +114,7 @@ h5 {
   color: #ffffff;
   transition-duration: 0.4s;
 }
-.check-availabilty:hover {
+.check-availability:hover {
   background: white;
   color: black;
 }
@@ -215,24 +215,14 @@ em {
   background-color: white;
   border: none;
 }
-
-.checkbutt {
-  position: absolute;
-}
 .cal {
   height: 500px !important;
   width: 500px !important;
-  border: black 5px solid;
+  border: rgb(139, 108, 108) 1px solid;
   position: absolute;
-  top: 450px;
+  top: 50px;
   background-color: #fafafa;
 }
-
-.secondlayer {
-  border: black 5px solid;
-}
-
 .vis {
-  position: relative;
   visibility: hidden;
 }

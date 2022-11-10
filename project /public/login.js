@@ -8,7 +8,7 @@ document
     formObject["username"] = form.username.value;
     formObject["password"] = form.password.value;
     console.log("done");
-    const res = await fetch("/register", {
+    const res = await fetch("/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

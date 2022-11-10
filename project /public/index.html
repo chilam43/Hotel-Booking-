@@ -20,6 +20,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css"
     />
+    <!-- <link rel="stylesheet" href="./cal.css" /> -->
   </head>
   <body>
     <header class="p-3 topBar">
@@ -81,14 +82,14 @@
         </div>
       </div>
     </header>
-
     <!-- Banner -->
-    <div style="position: relative; width: 100%">
-      <div class="banner overflow-hidden">
-        <img src="IMG_5034 2.png" width="100%" />
-      </div>
+    <!-- <div style="position: relative; width: 100%"> -->
+    <div class="banner overflow-hidden">
+      <img src="IMG_5034 2.png" width="100%" />
+    </div>
 
-      <!-- Search-Bar -->
+    <!-- Search-Bar -->
+    <form id="form-check-availability">
       <div class="container-banner">
         <div class="search-bar-container">
           <div class="search-bar">
@@ -99,16 +100,34 @@
                   <div class="bookingbar-picker-input">
                     <div class="DateInPut_1">
                       <!-- <div class="guest-input-label"> </div> -->
-                      <button id="check" class="date">Check-In</button>
+                      <input
+                        placeholder="Check-In"
+                        type="text"
+                        class="date"
+                        id="check"
+                        name="checkIn"
+                        readonly
+                      />
+                      <!-- <button id="check" class="date">Check-In</button> -->
                     </div>
                     <div class="DateInPut_2">
                       <!-- <div class="guest-input-label"> </div> -->
-                      <button class="date">Check-Out</button>
+                      <input
+                        placeholder="Check-Out"
+                        type="text"
+                        class="date"
+                        id="check-out"
+                        name="checkOut"
+                        readonly
+                      />
+                      <!-- <button id="check-out" class="date">Check-Out</button> -->
+                    </div>
+                    <div class="cal vis">
+                      <div id="calendar"></div>
                     </div>
                   </div>
                 </div>
               </div>
-
               <div class="guest-input-container">
                 <div id="down">
                   <button id="dropdown-menu" class="date">
@@ -178,15 +197,21 @@
                   </div>
                 </div>
               </div>
-              <button type="submit" class="check-availabilty">
+              <button
+                type="submit"
+                class="check-availability"
+                id="check-availability"
+              >
                 Check Availability
               </button>
             </div>
           </div>
         </div>
       </div>
-      <!-- Banner -->
-    </div>
+    </form>
+    <!-- Banner -->
+    <!-- </div> -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
     <script src="landingPage.js"></script>
   </body>
 </html>

@@ -1,16 +1,16 @@
-let a = true;
+// let a = true;
 
-let b = document.querySelector("#down")
-b.addEventListener("click", function () {
-    if (a == true) {
+// let b = document.querySelector("#down")
+// b.addEventListener("click", function () {
+//     if (a == true) {
 
 
-    }
-})
+//     }
+// })
 
 // drop down box
-let adultCount = document.getElementById("adult-count");
-let childrenCount = document.getElementById("children-count");
+const adultCount = document.getElementById("adult-count");
+const childrenCount = document.getElementById("children-count");
 const minusButtonA = document.querySelector(".btn-minus-a");
 const plusButtonA = document.querySelector(".btn-plus-a");
 const minusButtonC = document.querySelector(".btn-minus-c");
@@ -53,12 +53,96 @@ document.addEventListener('click', (event) => {
     const withinBoundaries = event.composedPath().includes(target2)
 
     if (withinBoundaries) {
-        console.log("click")
         document.querySelector(".guest-input-drop-down").classList.remove("close")
     } else {
-        console.log("remove")
         document.querySelector(".guest-input-drop-down").classList.add("close")
     }
 })
 
+
+
 // cal
+let check = true;
+// let checkIn = document.getElementById("check")
+// let checkOut = document.getElementById("check-out")
+let calendarEl = document.getElementById("calendar");
+const checkIn = document.querySelector('#check')
+const checkOut = document.querySelector('#check-out')
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: "dayGridMonth",
+        selectable: true,
+
+        dateClick: function (info) {
+            // if (check == true) {
+            //     document.getElementById("check").value = info.dateStr;
+            //     check = !true;
+            // }
+            // if (check == true) {
+            //     let a = document.getElementById("check-out").value = info.dateStr;
+            //     check = !true;
+            // }
+            if (check == true) {
+                checkIn.value = info.dateStr;
+                check = !true;
+            } else
+                checkOut.value = info.dateStr;
+            if (
+                checkIn > checkOut
+            ) {
+
+                alert("Wrong");
+                // todo replace
+            }
+        },
+    });
+    calendar.render();
+});
+
+// if (isClicked = !isClicked) {
+//     document.getElementById("check").value = info.dateStr;
+// }
+// if (checkOut = onclick) {
+//     document.getElementById("check-out").value = info.dateStr;
+// }
+
+
+document.addEventListener('click', (event) => {
+    const withinBoundaries = event.composedPath().includes(checkIn)
+    const withinBoundaries2 = event.composedPath().includes(checkOut)
+
+    if (withinBoundaries || withinBoundaries2) {
+        document.querySelector(".cal").classList.remove("vis")
+
+
+    } else {
+        document.querySelector(".cal").classList.add("vis")
+    }
+})
+
+// submit
+document
+    .querySelector("#form-check-availability")
+    .addEventListener("submit", async function (event) {
+        event.preventDefault();
+        const form = event.target;
+        const formObject = {};
+        formObject["checkIn"] = form.checkIn.value;
+        formObject["checkOut"] = form.checkOut.value;
+        console.log("done");
+        const res = await fetch("/search-room", { // change /register
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formObject),
+        });
+        // const result = await res.json();
+        // console.log(result);
+        // document.querySelector("#contact-result").textContent = result;
+    });
+
+// const submit = document.querySelector('#check-availability')
+
