@@ -1,10 +1,10 @@
 import express from "express";
-import { Client } from "./db";
+import { client } from "../db";
 
 export let bookingroute = express.Router();
 
 bookingroute.post("/checkava", async function (req, res) {
-  let data = await Client.query(
+  let data = await client.query(
     `SELECT room.*
 FROM room
 WHERE id NOT IN (
