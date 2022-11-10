@@ -62,12 +62,21 @@ document.addEventListener('click', (event) => {
 
 
 // cal
-let check = true;
 // let checkIn = document.getElementById("check")
 // let checkOut = document.getElementById("check-out")
 let calendarEl = document.getElementById("calendar");
+
 const checkIn = document.querySelector('#check')
 const checkOut = document.querySelector('#check-out')
+
+let check = "checkIn"; // true = in, false = out
+checkIn.addEventListener("click", () => {
+    check = "checkIn"
+})
+
+checkOut.addEventListener("click", () => {
+    check = "checkOut"
+})
 
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -84,18 +93,32 @@ document.addEventListener("DOMContentLoaded", function () {
             //     let a = document.getElementById("check-out").value = info.dateStr;
             //     check = !true;
             // }
-            if (check == true) {
-                checkIn.value = info.dateStr;
-                check = !true;
-            } else
-                checkOut.value = info.dateStr;
-            if (
-                checkIn > checkOut
-            ) {
 
-                alert("Wrong");
-                // todo replace
+            // if (checkIn.value && checkOut.value && checkIn.value > checkOut.value) {
+
+            //     alert("Wrong");
+            //     return;
+            //     // todo replace
+            // }
+
+            console.log(info.dateStr);
+
+            if (check == "checkIn") {
+                let today = info.dateStr.split("-")
+                let dayPlus = +today[2] + 1
+                let dayString = dayPlus <= 9 ? "0" + dayPlus : dayPlus + ""
+                today[2] = dayString;
+
+                console.log(today);
+
+
+                checkIn.value = info.dateStr;
+                checkOut.value = today.join("-");
             }
+            else {
+                checkOut.value = info.dateStr;
+            }
+
         },
     });
     calendar.render();
@@ -140,7 +163,7 @@ document
             body: JSON.stringify(formObject),
         });
         const result = await res.json();
-        // console.log(result);
+        console.log(result);
         // document.querySelector("#contact-result").textContent = result;
     });
 
