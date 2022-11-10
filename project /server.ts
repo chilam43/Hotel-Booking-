@@ -4,6 +4,7 @@ import { print } from "listening-on";
 // import { SessionMiddleware } from "/session";
 import { userRoutes } from "./router/usersRouter";
 // import { isRedirect } from "node-fetch";
+import { bookingroute } from "./router/select_room";
 import { landing } from "./router/landingRouter";
 import { client } from "./db";
 
@@ -19,6 +20,7 @@ app.use(express.static("public"));
 
 app.use(userRoutes);
 app.use(landing);
+app.use(bookingroute);
 
 let port = 8030;
 app.listen(port, () => {
