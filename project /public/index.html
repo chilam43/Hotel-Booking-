@@ -89,113 +89,126 @@
     </div>
 
     <!-- Search-Bar -->
-    <div class="container-banner">
-      <div class="search-bar-container">
-        <div class="search-bar">
-          <div class="BookingBar-content">
-            <h5>Reserve</h5>
-            <div class="bookingbar-dateRanger-container">
-              <div class>
-                <div class="bookingbar-picker-input">
-                  <div class="DateInPut_1">
-                    <!-- <div class="guest-input-label"> </div> -->
-                    <input
-                      placeholder="Check-In"
-                      type="text"
-                      class="date"
-                      id="check"
-                      readonly
-                    />
-                    <!-- <button id="check" class="date">Check-In</button> -->
-                  </div>
-                  <div class="DateInPut_2">
-                    <!-- <div class="guest-input-label"> </div> -->
-                    <input
-                      placeholder="Check-Out"
-                      type="text"
-                      class="date"
-                      id="check-out"
-                      readonly
-                    />
-                    <!-- <button id="check-out" class="date">Check-Out</button> -->
-                  </div>
-                  <div class="cal vis">
-                    <div id="calendar"></div>
+    <form id="form-check-availability">
+      <div class="container-banner">
+        <div class="search-bar-container">
+          <div class="search-bar">
+            <div class="BookingBar-content">
+              <h5>Reserve</h5>
+              <div class="bookingbar-dateRanger-container">
+                <div class>
+                  <div class="bookingbar-picker-input">
+                    <div class="DateInPut_1">
+                      <!-- <div class="guest-input-label"> </div> -->
+                      <input
+                        placeholder="Check-In"
+                        type="text"
+                        class="date"
+                        id="check"
+                        name="checkIn"
+                        readonly
+                      />
+                      <!-- <button id="check" class="date">Check-In</button> -->
+                    </div>
+                    <div class="DateInPut_2">
+                      <!-- <div class="guest-input-label"> </div> -->
+                      <input
+                        placeholder="Check-Out"
+                        type="text"
+                        class="date"
+                        id="check-out"
+                        name="checkOut"
+                        readonly
+                      />
+                      <!-- <button id="check-out" class="date">Check-Out</button> -->
+                    </div>
+                    <div class="cal vis">
+                      <div id="calendar"></div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-
-            <div class="guest-input-container">
-              <div id="down">
-                <button id="dropdown-menu" class="date">Adult, Children</button>
-                <button id="dropdown-menu2" class="date"></button>
-              </div>
-              <!-- Drop Down Menu -->
-              <div class="drop-down-container">
-                <div class="guest-input-drop-down close">
-                  <em></em>
-                  <div class="guest-dropdown-adult">
+              <div class="guest-input-container">
+                <div id="down">
+                  <button id="dropdown-menu" class="date">
+                    Adult, Children
+                  </button>
+                  <button id="dropdown-menu2" class="date"></button>
+                </div>
+                <!-- Drop Down Menu -->
+                <div class="drop-down-container">
+                  <div class="guest-input-drop-down close">
+                    <em></em>
+                    <div class="guest-dropdown-adult">
+                      <div class="label-area">
+                        <label class="guest-dropdown-label">Adults</label>
+                        <div class="area">
+                          <button
+                            tabindex="0"
+                            aria-label="minus"
+                            class="btn-minus-a"
+                          >
+                            <i class="fa-solid fa-square-minus"></i>
+                          </button>
+                          <input
+                            type="text"
+                            name="adult"
+                            id="adult-count"
+                            value="1"
+                            readonly
+                          />
+                          <button
+                            tabindex="0"
+                            aria-label="plus"
+                            class="btn-plus-a"
+                          >
+                            <i class="fa-solid fa-square-plus"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="guest-dropdown-children"></div>
                     <div class="label-area">
-                      <label class="guest-dropdown-label">Adults</label>
-                      <div class="area">
+                      <label class="guest-dropdown-label">Children</label>
+                      <div>
                         <button
                           tabindex="0"
                           aria-label="minus"
-                          class="btn-minus-a"
+                          class="btn-minus-c"
                         >
                           <i class="fa-solid fa-square-minus"></i>
                         </button>
                         <input
                           type="text"
-                          name="adult"
-                          id="adult-count"
-                          value="1"
+                          name="children"
+                          id="children-count"
+                          value="0"
                           readonly
                         />
                         <button
                           tabindex="0"
                           aria-label="plus"
-                          class="btn-plus-a"
+                          class="btn-plus-c"
                         >
                           <i class="fa-solid fa-square-plus"></i>
                         </button>
                       </div>
                     </div>
                   </div>
-                  <div class="guest-dropdown-children"></div>
-                  <div class="label-area">
-                    <label class="guest-dropdown-label">Children</label>
-                    <div>
-                      <button
-                        tabindex="0"
-                        aria-label="minus"
-                        class="btn-minus-c"
-                      >
-                        <i class="fa-solid fa-square-minus"></i>
-                      </button>
-                      <input
-                        type="text"
-                        name="children"
-                        id="children-count"
-                        value="0"
-                        readonly
-                      />
-                      <button tabindex="0" aria-label="plus" class="btn-plus-c">
-                        <i class="fa-solid fa-square-plus"></i>
-                      </button>
-                    </div>
-                  </div>
                 </div>
               </div>
+              <button
+                type="submit"
+                class="check-availability"
+                id="check-availability"
+              >
+                Check Availability
+              </button>
             </div>
-            <button type="submit" class="check-availability">
-              Check Availability
-            </button>
           </div>
         </div>
       </div>
-    </div>
+    </form>
     <!-- Banner -->
     <!-- </div> -->
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>

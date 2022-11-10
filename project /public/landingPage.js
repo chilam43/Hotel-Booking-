@@ -123,5 +123,26 @@ document.addEventListener('click', (event) => {
 })
 
 // submit
-const submit = document.querySelector('.check-availability')
+document
+    .querySelector("#form-check-availability")
+    .addEventListener("submit", async function (event) {
+        event.preventDefault();
+        const form = event.target;
+        const formObject = {};
+        formObject["checkIn"] = form.checkIn.value;
+        formObject["checkOut"] = form.checkOut.value;
+        console.log("done");
+        const res = await fetch("/search-room", { // change /register
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formObject),
+        });
+        // const result = await res.json();
+        // console.log(result);
+        // document.querySelector("#contact-result").textContent = result;
+    });
+
+// const submit = document.querySelector('#check-availability')
 
