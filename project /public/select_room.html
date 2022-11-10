@@ -103,10 +103,17 @@ href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css"
       </div>
       <!-- cal end --></div>
       <div class="leftsmallbox all">
+        <form id="dateform">
         <label for="live">Check in date:</label>
         <input type="text" id="checkinDate" name="in" maxlength="1" size="2" disabled>
+        <br>
+        <br>
         <label for="out">Check out date:</label>
-        <input type="text" id="checkoutDate" name="out" maxlength="1" size="2" disabled></div>
+        <input type="text" id="checkoutDate" name="out" maxlength="1" size="2" disabled>
+        <input type="submit" value="Submit">
+        </form>
+      </div>
+
            </div>
             <!-- left up box end    left down box starts -->
            <div class="leftdownbox">
@@ -331,7 +338,23 @@ document.addEventListener('click', (event) => {
 
     <script>
 
+    let a =document.querySelector("#dateform")
+    a.addEventListener("submit",async function(event){event.preventDefault()
 
+      form={}
+
+      form["checkindate"]=a.in.value
+      form["checkoutdate"]=a.out.value
+
+      let req = {
+        method: "post",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form)
+    }
+      let res = await fetch("/checkava",req)
+      await res.json()
+    
+    })
 
 
 
