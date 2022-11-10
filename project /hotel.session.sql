@@ -37,3 +37,7 @@ where id = 3;
 UPDATE booking_record
 SET check_out_data = '2022-11-16'
 where id = 3;
+ALTER TABLE booking_record
+    RENAME COLUMN check_in_data TO check_in_date;
+ALTER TABLE booking_record
+    RENAME COLUMN check_out_data TO check_out_date;
