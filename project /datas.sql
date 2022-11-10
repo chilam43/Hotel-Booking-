@@ -1,5 +1,8 @@
 CREATE USER admin WITH PASSWORD 'admin' SUPERUSER;
 -- use the code below 
+create database hotel_booking;
+--開DB
+\ c hotel_booking -- 入DB
 CREATE TABLE room(
     id SERIAL PRIMARY KEY,
     room_number integer not null,
@@ -32,8 +35,8 @@ CREATE TYPE title AS ENUM('MR', 'MS', 'MRS', 'Sir', 'Dr', 'Mx');
 CREATE TABLE users(
     id SERIAL PRIMARY KEY,
     title title,
-    name VARCHAR(20) not null,
-    email VARCHAR(255) not null,
+    name VARCHAR(20),
+    email VARCHAR(255),
     password CHAR(60)
 );
 -- CREATE TABLE room(
@@ -43,11 +46,19 @@ CREATE TABLE users(
 --     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 --     updated_at TIMESTAMP
 -- );
+ALTER SEQUENCE type_id_seq RESTART 1;
+--reset table
+FROM room
+    JOIN type on room.type_id = type.id;
+TRUNCATE TABLE type RESTART IDENTITY;
+--例子
+--type 例子
 INSERT INTO type (name, price)
 VALUES ('A', 500),
     ('B', 400),
     ('C', 300),
     ('D', 200);
+--room例子
 INSERT INTO room (room_number, type_id, floor)
 VALUES (101, 4, 1),
     (102, 4, 1),
@@ -59,17 +70,14 @@ VALUES (101, 4, 1),
     (301, 2, 3),
     (302, 2, 3),
     (401, 1, 4);
-SELECT *
-FROM room
-    JOIN type on room.type_id = type.id;
-TRUNCATE TABLE type RESTART IDENTITY;
-ALTER SEQUENCE type_id_seq RESTART 1;
+--users例子
 INSERT into users(title, name, email, password)
 VALUES ('MS', 'Alice', 'alice@gmail.com', 'alice'),
     ('MR', 'Bob', 'bob@gmail.com', 'bob'),
     ('MR', 'Cat', 'cat@gmail.com', 'cat'),
     ('MR', 'David', 'david@gmail.com', 'david'),
     ('MS', 'Eve', 'eve@gmail.com', '');
+--book_record例子
 INSERT INTO booking_record (
         room_id,
         check_in_data,
