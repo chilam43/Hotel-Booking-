@@ -16,6 +16,10 @@
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css"
+    />
   </head>
   <body>
     <header class="p-3 topBar">
@@ -87,7 +91,7 @@
       <!-- Search-Bar -->
       <div class="container-banner">
         <div class="search-bar-container">
-          <div class="search-bar .container">
+          <div class="search-bar">
             <div class="BookingBar-content">
               <h5>Reserve</h5>
               <div class="bookingbar-dateRanger-container">
@@ -95,7 +99,7 @@
                   <div class="bookingbar-picker-input">
                     <div class="DateInPut_1">
                       <!-- <div class="guest-input-label"> </div> -->
-                      <button class="date">Check-In</button>
+                      <button id="check" class="date">Check-In</button>
                     </div>
                     <div class="DateInPut_2">
                       <!-- <div class="guest-input-label"> </div> -->
@@ -106,13 +110,71 @@
               </div>
 
               <div class="guest-input-container">
-                <div id="children">
-                  <button class="date">Adult, Children</button>
+                <div id="down">
+                  <button id="dropdown-menu" class="date">
+                    Adult, Children
+                  </button>
+                  <button id="dropdown-menu2" class="date"></button>
                 </div>
                 <!-- Drop Down Menu -->
-                <div class="guest-input-drop-down">
-                  <div class="guest-dropdown-adult">
-                    <label class="guest-dropdown-label">Adults</label>
+                <div class="drop-down-container">
+                  <div class="guest-input-drop-down close">
+                    <em></em>
+                    <div class="guest-dropdown-adult">
+                      <div class="label-area">
+                        <label class="guest-dropdown-label">Adults</label>
+                        <div class="area">
+                          <button
+                            tabindex="0"
+                            aria-label="minus"
+                            class="btn-minus-a"
+                          >
+                            <i class="fa-solid fa-square-minus"></i>
+                          </button>
+                          <input
+                            type="text"
+                            name="adult"
+                            id="adult-count"
+                            value="1"
+                            readonly
+                          />
+                          <button
+                            tabindex="0"
+                            aria-label="plus"
+                            class="btn-plus-a"
+                          >
+                            <i class="fa-solid fa-square-plus"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="guest-dropdown-children"></div>
+                    <div class="label-area">
+                      <label class="guest-dropdown-label">Children</label>
+                      <div>
+                        <button
+                          tabindex="0"
+                          aria-label="minus"
+                          class="btn-minus-c"
+                        >
+                          <i class="fa-solid fa-square-minus"></i>
+                        </button>
+                        <input
+                          type="text"
+                          name="children"
+                          id="children-count"
+                          value="0"
+                          readonly
+                        />
+                        <button
+                          tabindex="0"
+                          aria-label="plus"
+                          class="btn-plus-c"
+                        >
+                          <i class="fa-solid fa-square-plus"></i>
+                        </button>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -125,5 +187,6 @@
       </div>
       <!-- Banner -->
     </div>
+    <script src="landingPage.js"></script>
   </body>
 </html>
