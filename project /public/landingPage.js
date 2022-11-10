@@ -139,7 +139,7 @@ document
             },
             body: JSON.stringify(formObject),
         });
-        // const result = await res.json();
+        const result = await res.json();
         // console.log(result);
         // document.querySelector("#contact-result").textContent = result;
     });
