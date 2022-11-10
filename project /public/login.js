@@ -1,12 +1,11 @@
+console.log("hi");
 document
-  .querySelector("#form")
+  .querySelector("#login")
   .addEventListener("submit", async function (event) {
     event.preventDefault();
     const form = event.target;
     const formObject = {};
-    formObject["title"] = form.title.value;
     formObject["username"] = form.username.value;
-    formObject["email"] = form.email.value;
     formObject["password"] = form.password.value;
     console.log("done");
     const res = await fetch("/register", {
