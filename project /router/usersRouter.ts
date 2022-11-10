@@ -38,6 +38,8 @@ export const userRoutes = express.Router();
 // register
 userRoutes.post("/register", async (req, res) => {
   let { title, username, email, password } = req.body;
+  console.log(req.body);
+
   if (!title) {
     res.status(400);
     return res.json({ status: true, msg: "title fail" });
@@ -52,12 +54,12 @@ userRoutes.post("/register", async (req, res) => {
   }
   if (!password) {
     res.status(400);
-    return res.json({ status: true, msg: "email fail" });
+    return res.json({ status: true, msg: "password fail" });
   }
   await client.query(
-    `INSERT INTO users (username, password, created_at, updated_at) 
-    VALUES ($1, $2, NOW(), NOW())`,
-    [username, password]
+    `INSERT INTO users (title, name, email, password) 
+    VALUES ($1, $2, $3, $4)`,
+    [title, username, email, password]
   );
 
   res.json({ success: true });
