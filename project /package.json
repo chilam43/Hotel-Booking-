@@ -19,7 +19,9 @@
   },
   "homepage": "https://github.com/chilam43/Chire#readme",
   "dependencies": {
+    "@types/bcryptjs": "^2.4.2",
     "@types/jsonfile": "^6.1.0",
+    "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.3",
     "jsonfile": "^6.1.0",
     "moment": "^2.29.4",
