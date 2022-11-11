@@ -42,10 +42,8 @@ bookingroute.post("/checkava", async function (req, res) {
   }, {});
   let list = { 4: "D", 3: "C", 2: "B", 1: "A" };
 
-  for (let number in a) {
-    for (let type in list) {
-    }
-  }
+  console.log(a);
+  console.log(list);
 
   res.json({ data: data.rows });
 });
