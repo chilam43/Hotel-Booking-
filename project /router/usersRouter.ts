@@ -11,37 +11,40 @@ export const userRoutes = express.Router();
 // register
 userRoutes.post("/register", async (req, res) => {
   let { title, username, email, password } = req.body;
+  try {
+    if (!title) {
+      res.status(400);
+      return res.json({ status: true, msg: "title fail" });
+    }
+    if (!username) {
+      res.status(400);
+      return res.json({ status: true, msg: "username fail" });
+    }
+    if (!email) {
+      res.status(400);
+      return res.json({ status: true, msg: "email fail" });
+    }
+    if (!password) {
+      res.status(400);
+      return res.json({ status: true, msg: "password fail" });
+    }
+    if (password < 7) {
+      res.status(400);
+      return res.json({ status: true, msg: "password fail" });
+    }
 
-  if (!title) {
-    res.status(400);
-    return res.json({ status: true, msg: "title fail" });
-  }
-  if (!username) {
-    res.status(400);
-    return res.json({ status: true, msg: "username fail" });
-  }
-  if (!email) {
-    res.status(400);
-    return res.json({ status: true, msg: "email fail" });
-  }
-  if (!password) {
-    res.status(400);
-    return res.json({ status: true, msg: "password fail" });
-  }
-  if (password < 7) {
-    res.status(400);
-    return res.json({ status: true, msg: "password fail" });
-  }
+    let hash_pw = await hashPassword(password);
 
-  let hash_pw = await hashPassword(password);
-
-  await client.query(
-    `INSERT INTO users (title, name, email, password) 
+    await client.query(
+      `INSERT INTO users (title, name, email, password) 
     VALUES ($1, $2, $3, $4)`,
-    [title, username, email, hash_pw]
-  );
+      [title, username, email, hash_pw]
+    );
+  } catch (error) {
+    console.log(error);
 
-  res.json({ success: true });
+    return res.status(400).json({ status: false, msg: "server error" });
+  }
 });
 
 // login
@@ -95,6 +98,10 @@ userRoutes.post("/login", async (req, res) => {
 });
 
 userRoutes.get("/currentUser", (req, res) => {
-  console.log(req.session.user);
-  res.json(req.session.user);
+  res.json({ user: req.session.user });
+});
+
+userRoutes.get("/logout", (req, res) => {
+  req.session.destroy(() => {});
+  res.json({});
 });
