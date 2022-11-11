@@ -2,4 +2,9 @@
 playground.html
 playground.js
 playground.css
+playground.ts
+playground-server
 .env
+settings.json
+.vscode
+playground-public
