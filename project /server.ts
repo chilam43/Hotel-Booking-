@@ -1,4 +1,5 @@
 import express from "express";
+import expressSession from "express-session";
 import { print } from "listening-on";
 // import path from "path";
 // import { SessionMiddleware } from "/session";
@@ -11,6 +12,25 @@ import { client } from "./db";
 client.connect();
 let app = express();
 
+app.use(
+  expressSession({
+    secret: "hotel-secret",
+    resave: true,
+    saveUninitialized: true,
+  })
+);
+
+type User = {
+  id: number;
+  name: string;
+  title: string;
+};
+
+declare module "express-session" {
+  interface SessionData {
+    user: User;
+  }
+}
 app.use(express.urlencoded());
 app.use(express.json());
 

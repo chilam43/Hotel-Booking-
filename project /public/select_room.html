@@ -150,7 +150,7 @@ href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css"
        </div>
        <!-- right -->
        <div class="col-sm rightbox">
-        <form action="/book" id="booktable">
+       
         <div class="rightbigbox">
          
           <div class="rightsmallbox">Your stay</div>
@@ -202,11 +202,11 @@ href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css"
         </div>
       <!--  total submit -->
         <div>
-        <input type="submit">
+        <button id="handinInfo"> to next</button>
         </div>
         <!-- submit end  -->
        </div>
-      </form>
+     
      </div>
       <!-- col-sm rightbox end -->
     </div>
@@ -352,8 +352,25 @@ document.addEventListener('click', (event) => {
         body: JSON.stringify(form)
     }
       let res = await fetch("/checkava",req)
-      await res.json()
-    
+      let roomAva =await res.json()
+
+      let searchArr = ["-1", "A", "B" , "C", "D"]
+      for(let i = 1; i < 5; i ++){
+
+        let currentRoom = roomAva[i];
+         console.log(roomAva[i+""]+  "room available")
+        // check if that room exist on the object
+        // AND (have that type on the object but room count is 0)
+        if( !currentRoom || (!!currentRoom && currentRoom <= 0)){
+          document.getElementById("book" + searchArr[i]).classList.add("vis")
+          
+        }
+        else {document.getElementById("book" + searchArr[i]).classList.remove("vis")}
+      }
+      
+      
+
+
     })
 
 
@@ -361,6 +378,128 @@ document.addEventListener('click', (event) => {
 
 
     </script>
+
+    <script>   
+      window.onload = async () => {
+        // should be inside window.onload
+        const searchParams = new URLSearchParams(location.search)
+        const dateArrive = searchParams.get("checkIn");
+        const dateLater = searchParams.get("checkOutDate");
+        console.log(dateArrive, dateLater);
+        document.querySelector("#checkinDate").value = dateArrive
+        document.querySelector("#checkoutDate").value = dateLater
+        document.querySelector("#checkinDate1").value = dateArrive
+        document.querySelector("#checkoutDate1").value = dateLater
+
+        let one_day = 1000 * 60 * 60 * 24;
+            let d1 = new Date(document.getElementById("checkinDate").value);
+            let d2 = new Date(document.getElementById("checkoutDate").value);
+            let result = d2 - d1;
+            let total = result / one_day;
+            document.getElementById("totalDay").textContent = total;
+
+           /////////window onload search /////////
+
+      form={}
+
+form["checkindate"]=a.in.value
+form["checkoutdate"]=a.out.value
+
+let req = {
+  method: "post",
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(form)
+}
+let res = await fetch("/checkava",req)
+let roomAva =await res.json()
+
+let searchArr = ["-1", "A", "B" , "C", "D"]
+for(let i = 1; i < 5; i ++){
+
+  let currentRoom = roomAva[i];
+   console.log(roomAva[i+""]+  "room available")
+  // check if that room exist on the object
+  // AND (have that type on the object but room count is 0)
+  if( !currentRoom || (!!currentRoom && currentRoom <= 0)){
+    document.getElementById("book" + searchArr[i]).classList.add("vis")
+  }
+}
+
+
+
+      };
+     </script>
+
+
+  
+  <script>
+    let dateNow =document.querySelector("#checkinDate1")
+    let dateLater =document.querySelector("#checkoutDate1")
+    let totalday =document.querySelector("#totalDay")
+    let amount = 0;
+    
+    document.querySelector("#bookA").addEventListener("click", function(){
+    
+    let price= parseInt (document.querySelector("#priceA").textContent)
+    let day=  parseInt(document.getElementById("totalDay").textContent)
+    document.querySelector(".choosetype").textContent=document.querySelector(".roomtypeA").textContent
+    console.log(price)
+    console.log(day)
+    let sum = price *day
+     document.querySelector("#amount").textContent=sum
+     amount = sum
+   })
+
+   document.querySelector("#bookB").addEventListener("click", function(){
+  
+    let price= parseInt (document.querySelector("#priceB").textContent)
+    let day=  parseInt(document.getElementById("totalDay").textContent)
+    document.querySelector(".choosetype").textContent=document.querySelector(".roomtypeB").textContent
+    console.log(price)
+    console.log(day)
+    let sum = price *day
+     document.querySelector("#amount").textContent=sum
+     amount = sum
+   })
+
+   document.querySelector("#bookC").addEventListener("click", function(){
+   
+    let price= parseInt (document.querySelector("#priceC").textContent)
+    let day=  parseInt(document.getElementById("totalDay").textContent)
+    document.querySelector(".choosetype").textContent=document.querySelector(".roomtypeC").textContent
+    console.log(price)
+    console.log(day)
+    let sum = price *day
+     document.querySelector("#amount").textContent=sum
+     amount = sum
+   })
+
+   document.querySelector("#bookD").addEventListener("click", function(){
+    
+    let price= parseInt (document.querySelector("#priceD").textContent)
+    let day=  parseInt(document.getElementById("totalDay").textContent)
+    document.querySelector(".choosetype").textContent=document.querySelector(".roomtypeD").textContent
+    console.log(price)
+    console.log(day)
+    let sum = price *day
+     document.querySelector("#amount").textContent=sum
+     amount = sum
+   })
+
+
+    console.log(dateNow,dateLater,totalday,amount)
+
+
+    const btn = document.getElementById("handinInfo");
+    btn.addEventListener("click", () => {
+      console.log(dateNow.value,dateLater.value,totalday.textContent,amount)
+      // location.href = `/resgi.html?dateArrive=${dateNow}&dateLater=${dateLater}&daylength=${totalday}$price=${amount}`;
+    });
+
+   
+
+  </script>
+
   
     <script src="cal.js"></script>
   </body>

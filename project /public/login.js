@@ -16,8 +16,16 @@ document
     });
 
     const result = await res.json();
-    console.log(result);
-
-    alert(result.msg);
-    // document.querySelector("#contact-result").textContent = result;
+    // console.log(result);
+    // if (result.status) {
+    //   alert(result.msg);
+    //   location.href = "/index.html";
+    // } else {
+    //   alert(result.msg);
+    // }
+    if (res.status == 200) {
+      location.href = "index.html";
+    } else {
+      alert(result.msg);
+    }
   });

@@ -4,7 +4,6 @@
 // b.addEventListener("click", function () {
 //     if (a == true) {
 
-
 //     }
 // })
 
@@ -17,112 +16,106 @@ const minusButtonC = document.querySelector(".btn-minus-c");
 const plusButtonC = document.querySelector(".btn-plus-c");
 const adultValue = document.getElementById("dropdown-menu");
 const adultValue2 = document.getElementById("dropdown-menu2");
-const adultNum = "Adult: "
-const childrenNum = "Children: "
+const adultNum = "Adult: ";
+const childrenNum = "Children: ";
 
 const checkAvailability = document.querySelector("#check-availability");
 
 minusButtonA.addEventListener("click", function () {
-    const count = Number(adultCount.value);
-    adultCount.value = Math.max(count - 1, 1);
-    adultValue.textContent = adultNum + adultCount.value
+  const count = Number(adultCount.value);
+  adultCount.value = Math.max(count - 1, 1);
+  adultValue.textContent = adultNum + adultCount.value;
 });
 
 plusButtonA.addEventListener("click", function () {
-    const count = Number(adultCount.value);
-    adultCount.value = Math.min(count + 1, 9);
-    adultValue.textContent = adultNum + adultCount.value
+  const count = Number(adultCount.value);
+  adultCount.value = Math.min(count + 1, 9);
+  adultValue.textContent = adultNum + adultCount.value;
 });
 
 minusButtonC.addEventListener("click", function () {
-    const count = Number(childrenCount.value);
-    childrenCount.value = Math.max(count - 1, 0);
-    adultValue2.textContent = childrenNum + childrenCount.value
+  const count = Number(childrenCount.value);
+  childrenCount.value = Math.max(count - 1, 0);
+  adultValue2.textContent = childrenNum + childrenCount.value;
 });
 
 plusButtonC.addEventListener("click", function () {
-    const count = Number(childrenCount.value);
-    childrenCount.value = Math.min(count + 1, 9);
-    adultValue2.textContent = childrenNum + childrenCount.value
-    console.log(adultValue.textContent)
+  const count = Number(childrenCount.value);
+  childrenCount.value = Math.min(count + 1, 9);
+  adultValue2.textContent = childrenNum + childrenCount.value;
+  console.log(adultValue.textContent);
 });
 
 // const target = document.querySelector('#dropdown-menu')
-const target2 = document.querySelector('.guest-input-container')
+const target2 = document.querySelector(".guest-input-container");
 
-document.addEventListener('click', (event) => {
-    const withinBoundaries = event.composedPath().includes(target2)
+document.addEventListener("click", (event) => {
+  const withinBoundaries = event.composedPath().includes(target2);
 
-    if (withinBoundaries) {
-        document.querySelector(".guest-input-drop-down").classList.remove("close")
-    } else {
-        document.querySelector(".guest-input-drop-down").classList.add("close")
-    }
-})
-
-
+  if (withinBoundaries) {
+    document.querySelector(".guest-input-drop-down").classList.remove("close");
+  } else {
+    document.querySelector(".guest-input-drop-down").classList.add("close");
+  }
+});
 
 // cal
 // let checkIn = document.getElementById("check")
 // let checkOut = document.getElementById("check-out")
 let calendarEl = document.getElementById("calendar");
 
-const checkIn = document.querySelector('#check')
-const checkOut = document.querySelector('#check-out')
+const checkIn = document.querySelector("#check");
+const checkOut = document.querySelector("#check-out");
 
 let check = "checkIn"; // true = in, false = out
 checkIn.addEventListener("click", () => {
-    check = "checkIn"
-})
+  check = "checkIn";
+});
 
 checkOut.addEventListener("click", () => {
-    check = "checkOut"
-})
-
+  check = "checkOut";
+});
 
 document.addEventListener("DOMContentLoaded", function () {
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: "dayGridMonth",
-        selectable: true,
+  var calendar = new FullCalendar.Calendar(calendarEl, {
+    initialView: "dayGridMonth",
+    selectable: true,
 
-        dateClick: function (info) {
-            // if (check == true) {
-            //     document.getElementById("check").value = info.dateStr;
-            //     check = !true;
-            // }
-            // if (check == true) {
-            //     let a = document.getElementById("check-out").value = info.dateStr;
-            //     check = !true;
-            // }
+    dateClick: function (info) {
+      // if (check == true) {
+      //     document.getElementById("check").value = info.dateStr;
+      //     check = !true;
+      // }
+      // if (check == true) {
+      //     let a = document.getElementById("check-out").value = info.dateStr;
+      //     check = !true;
+      // }
 
-            // if (checkIn.value && checkOut.value && checkIn.value > checkOut.value) {
+      // if (checkIn.value && checkOut.value && checkIn.value > checkOut.value) {
 
-            //     alert("Wrong");
-            //     return;
-            //     // todo replace
-            // }
+      //     alert("Wrong");
+      //     return;
+      //     // todo replace
+      // }
 
-            console.log(info.dateStr);
+      console.log(info.dateStr);
 
-            if (check == "checkIn") {
-                let today = info.dateStr.split("-")
-                let dayPlus = +today[2] + 1
-                let dayString = dayPlus <= 9 ? "0" + dayPlus : dayPlus + ""
-                today[2] = dayString;
+      if (check == "checkIn") {
+        let today = info.dateStr.split("-");
+        let dayPlus = +today[2] + 1;
+        let dayString = dayPlus <= 9 ? "0" + dayPlus : dayPlus + "";
+        today[2] = dayString;
 
-                console.log(today);
+        console.log(today);
 
-
-                checkIn.value = info.dateStr;
-                checkOut.value = today.join("-");
-            }
-            else {
-                checkOut.value = info.dateStr;
-            }
-
-        },
-    });
-    calendar.render();
+        checkIn.value = info.dateStr;
+        checkOut.value = today.join("-");
+      } else {
+        checkOut.value = info.dateStr;
+      }
+    },
+  });
+  calendar.render();
 });
 
 // if (isClicked = !isClicked) {
@@ -132,19 +125,16 @@ document.addEventListener("DOMContentLoaded", function () {
 //     document.getElementById("check-out").value = info.dateStr;
 // }
 
+document.addEventListener("click", (event) => {
+  const withinBoundaries = event.composedPath().includes(checkIn);
+  const withinBoundaries2 = event.composedPath().includes(checkOut);
 
-document.addEventListener('click', (event) => {
-    const withinBoundaries = event.composedPath().includes(checkIn)
-    const withinBoundaries2 = event.composedPath().includes(checkOut)
-
-    if (withinBoundaries || withinBoundaries2) {
-        document.querySelector(".cal").classList.remove("vis")
-
-
-    } else {
-        document.querySelector(".cal").classList.add("vis")
-    }
-})
+  if (withinBoundaries || withinBoundaries2) {
+    document.querySelector(".cal").classList.remove("vis");
+  } else {
+    document.querySelector(".cal").classList.add("vis");
+  }
+});
 
 // submit
 document
@@ -180,12 +170,33 @@ checkAvailability.addEventListener('click', async function () {
 
 // sweetAlert
 
-const currentForm = document.querySelector("#form-check-availability")
-currentForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+const currentForm = document.querySelector("#form-check-availability");
+currentForm.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-    let checkInDate = currentForm.checkIn.value;
-    let checkOutDate = currentForm.checkOut.value
-    location.href = `/select_room.html?checkIn=${checkInDate}&checkOutDate=${checkOutDate}`
-})
+  let checkInDate = currentForm.checkIn.value;
+  let checkOutDate = currentForm.checkOut.value;
+  location.href = `/select_room.html?checkIn=${checkInDate}&checkOutDate=${checkOutDate}`;
+});
 
+window.onload = async () => {
+  const userobj = await fetch("/currentUser");
+  const res = await userobj.json();
+  console.log(res);
+
+  if (res.user) {
+    document.querySelector("#loginLogout").textContent = "logout";
+    document
+      .querySelector("#loginLogoutLink")
+      .addEventListener("click", async (e) => {
+        e.preventDefault();
+        // 唔比佢load
+        await fetch("/logout");
+        // 等佢Del完
+        location.reload();
+        // F5
+      });
+  } else {
+    document.querySelector("#loginLogout").textContent = "Login";
+  }
+};
