@@ -352,8 +352,23 @@ document.addEventListener('click', (event) => {
         body: JSON.stringify(form)
     }
       let res = await fetch("/checkava",req)
-      await res.json()
-    
+      let roomAva =await res.json()
+
+      let searchArr = ["-1", "A", "B" , "C", "D"]
+      for(let i = 1; i < 5; i ++){
+
+        let currentRoom = roomAva[i+""];
+
+        // check if that coon exist on the object
+        // AND (have that type on the object but room count is 0)
+        if( !currentRoom || (!!currentRoom && currentRoom <= 0)){
+          document.getElementById("book" + searchArr[i]).classList.add("vis")
+        }
+      }
+      
+      
+
+
     })
 
 
@@ -361,6 +376,21 @@ document.addEventListener('click', (event) => {
 
 
     </script>
+
+    <script>   
+      window.onload = async () => {
+        // should be inside window.onload
+        const searchParams = new URLSearchParams(location.search);
+        const dateArrive = searchParams.get("dateArrive");
+        const dateLater = searchParams.get("dateLater");
+       
+        
+
+
+
+        console.log(dateArrive, dateLater);
+      };
+     </script>
   
     <script src="cal.js"></script>
   </body>

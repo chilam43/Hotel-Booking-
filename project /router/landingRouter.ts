@@ -10,7 +10,7 @@ landing.post("/search-room", async (req, res) => {
     console.log({ checkIn, checkOut });
 
     try {
-        let data = await client.query(/* sql */ `
+        let date = await client.query(/* sql */ `
         SELECT room.*
         FROM room
         WHERE id NOT IN (
@@ -23,15 +23,15 @@ landing.post("/search-room", async (req, res) => {
                     )
                     AND CURRENT_TIMESTAMP > lock_time
         )`
-            , [checkIn, checkOut])
+            , [checkOut, checkIn])
 
-        console.log(data.rows);
+        console.log(date.rows);
 
-        res.json({ data: data.rows })
+        res.json({ date: date.rows })
 
     } catch (error) {
         console.log(error);
 
-        res.json({ data: [] })
+        res.json({ date: [] })
     }
 })
