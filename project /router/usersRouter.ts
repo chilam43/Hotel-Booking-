@@ -3,14 +3,10 @@ import { checkPassword, hashPassword } from "../hash";
 // import jsonfile from "jsonfile";
 // import path from "path";
 import { client } from "../db";
-// import { request } from "http";
+
+// import { isRedirect } from "node-fetch";
 
 export const userRoutes = express.Router();
-
-// type User = {
-//   username: string;
-//   password: string;
-// };
 
 // register
 userRoutes.post("/register", async (req, res) => {
@@ -50,25 +46,6 @@ userRoutes.post("/register", async (req, res) => {
 
 // login
 
-// async function login(req: express.Request, res: express.Response) {
-//   const { username, password } = req.body;
-//   const users = (
-//     await client.query(`SELECT * FROM users WHERE email = $1`, [username])
-//   ).rows;
-
-//   const user = users[0];
-//   if (!user) {
-//     return res.status(401).redirect("/login.html?error=Incorrect+Username");
-//   }
-
-//   const match = await checkPassword(password, user.password);
-//   if (match) {
-//     return res.redirect("/"); // To the protected page.
-//   } else {
-//     return res.status(401).redirect("/login.html?error=Incorrect+Username");
-//   }
-// }
-
 userRoutes.post("/login", async (req, res) => {
   try {
     let { username, password } = req.body;
@@ -101,10 +78,23 @@ userRoutes.post("/login", async (req, res) => {
         .json({ status: false, msg: "Wrong username or password" });
     }
 
-    return res.status(200).json({ status: true, msg: "login success" });
+    req.session.user = {
+      id: users.rows[0].id,
+      name: users.rows[0].name,
+      title: users.rows[0].title,
+    };
+    console.log("session:", req.session.user);
+    res.status(200).json({ status: true, msg: "login success" });
   } catch (error) {
+    console.log(error);
+
     return res.status(400).json({ status: false, msg: "server error" });
   }
   //   res.status(200)
   //   res.json({})
+});
+
+userRoutes.get("/currentUser", (req, res) => {
+  console.log(req.session.user);
+  res.json(req.session.user);
 });
