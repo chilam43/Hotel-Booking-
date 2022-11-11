@@ -1,4 +1,3 @@
-console.log("hi");
 document
   .querySelector("#login")
   .addEventListener("submit", async function (event) {
@@ -7,7 +6,7 @@ document
     const formObject = {};
     formObject["username"] = form.username.value;
     formObject["password"] = form.password.value;
-    console.log("done");
+    console.log(form.username.value);
     const res = await fetch("/login", {
       method: "POST",
       headers: {
@@ -18,5 +17,7 @@ document
 
     const result = await res.json();
     console.log(result);
+
+    alert(result.msg);
     // document.querySelector("#contact-result").textContent = result;
   });

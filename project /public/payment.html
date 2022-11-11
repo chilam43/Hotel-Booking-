@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment</title>
+  </head>
+  <body>
+    <form id="form">
+      <div class="profileContainer">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="profileInfoHead">PROFILE INFORMATION</div>
+            <div style="display: flex">
+              <div>
+                <select
+                  class="form-select"
+                  id="title"
+                  name="title"
+                  aria-label="Default select example"
+                >
+                  <option value="1">MR</option>
+                  <option value="2">MS</option>
+                  <option value="3">MRS</option>
+                  <option value="4">Sir</option>
+                  <option value="5">Dr</option>
+                  <option value="6">Mx</option>
+                </select>
+              </div>
+              <div>
+                <input type="text" id="username" name="username" />
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <label for="emailAddress">Email Address</label>
+            <input type="text" id="emailAddress" name="email" />
+          </div>
+          <div class="paymeny-container">
+            <h3>Payment Information</h3>
+            <input
+              type="tel"
+              name="Card-Number"
+              placeholder="Card Number *"
+              style="width: 300px"
+            />
+            <div>
+              <input
+                autocomplete="off"
+                class="exp"
+                id="month"
+                maxlength="2"
+                pattern="[0-9]*"
+                inputmode="numerical"
+                placeholder="MM"
+                type="text"
+                data-pattern-validate
+                style="width: 50px"
+              />
+              <input
+                autocomplete="off"
+                class="exp"
+                id="year"
+                maxlength="2"
+                pattern="[0-9]*"
+                inputmode="numerical"
+                placeholder="YY"
+                type="text"
+                data-pattern-validate
+                style="width: 50px"
+              />
+              <input
+                name="Card-CVV"
+                placeholder="CVV *"
+                style="width: 174px"
+                maxlength="3"
+                pattern="[0-9]*"
+                inputmode="numerical"
+                type="text"
+                data-pattern-validate
+              />
+            </div>
+            <input
+              type="text"
+              name="Card-Number"
+              placeholder="Name On Card *"
+              style="width: 300px"
+            />
+          </div>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>
