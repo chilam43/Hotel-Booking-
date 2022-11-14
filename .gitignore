@@ -8,3 +8,5 @@ playground-server
 settings.json
 .vscode
 playground-public
+.test.js
+.tset.html

@@ -68,19 +68,20 @@ href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css"
         </ul>
 
         <div class="text-end">
-          <button type="button" class="whiteButton me-2">Login</button>
-          <button
-            onclick="document.location='/register.html'"
-            type="button"
-            class="brownButton"
-          >
-            Sign-up
-          </button>
+          <a id="loginLogoutLink" href="/login.html">
+            <button
+              type="button"
+              class="whiteButton me-2"
+              id="loginLogout"
+            ></button>
+          </a>
+          <a href="/register.html">
+            <button type="button" class="brownButton" id="register"></button>
+          </a>
         </div>
       </div>
     </div>
   </header>
-
  <!--   header ends         -->
 
  <div class="slogan"><h6>The Peninsula Hong Kong is committed to the highest levels of hygiene, safety and security for our guests. In light of the latest Government regulations and in an effort to protect the health and safety of both our guests and staff members, all guests are required to check-in using the LeaveHomeSafe App, provide proof of receiving the third COVID-19 vaccine dose or the second dose (received within six months), vaccination medical exemption certificate, or recovery record upon entry to the hotel, restaurants and facilities. Each table can seat up to eight guests.</h6></div>
@@ -500,7 +501,7 @@ for(let i = 1; i < 5; i ++){
 
   </script>
 
-  
+    <script src="header.js"></script>
     <script src="cal.js"></script>
   </body>
 </html>

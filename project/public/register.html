@@ -26,15 +26,26 @@
           <a
             href="/"
             class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"
-            ><i class="fa-solid fa-poo"></i>
-            <svg
-              class="bi me-2"
-              width="40"
-              height="32"
-              role="img"
-              aria-label="Bootstrap"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-firetruck"
+              width="44"
+              height="44"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="#2c3e50"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
             >
-              <use xlink:href="#bootstrap"></use>
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <circle cx="5" cy="17" r="2" />
+              <circle cx="17" cy="17" r="2" />
+              <path d="M7 18h8m4 0h2v-6a5 5 0 0 0 -5 -5h-1l1.5 5h4.5" />
+              <path d="M12 18v-11h3" />
+              <polyline points="3 17 3 12 12 12" />
+              <line x1="3" y1="9" x2="21" y2="3" />
+              <line x1="6" y1="12" x2="6" y2="8" />
             </svg>
           </a>
 
@@ -48,14 +59,16 @@
           </ul>
 
           <div class="text-end">
-            <button
-              type="button"
-              class="whiteButton me-2"
-              onclick="document.location='/login.html'"
-            >
-              Login
-            </button>
-            <button type="button" class="brownButton">Register</button>
+            <a id="loginLogoutLink" href="/login.html">
+              <button
+                type="button"
+                class="whiteButton me-2"
+                id="loginLogout"
+              ></button>
+            </a>
+            <a href="/register.html">
+              <button type="button" class="brownButton" id="register"></button>
+            </a>
           </div>
         </div>
       </div>
@@ -156,5 +169,6 @@
     </footer>
     <!-- footer end -->
     <script src="register.js"></script>
+    <script src="header.js"></script>
   </body>
 </html>
