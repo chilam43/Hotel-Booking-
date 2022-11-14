@@ -1,15 +1,16 @@
 
 
-let a = document.querySelector("#check")
-a.addEventListener("submit", async function (event) {
+let checkDom = document.querySelector("#check");
+
+checkDom.addEventListener("submit", async function (event) {
     event.preventDefault()
 
 
     let form = {}
 
-    form["checkin"] = a.a.value
-    form["checkout"] = a.b.value
-    form["bookedDay"] = a.total.value
+    form["checkin"] = checkDom.a.value
+    form["checkout"] = checkDom.b.value
+    form["bookedDay"] = checkDom.total.value
 
 
     let req = {
