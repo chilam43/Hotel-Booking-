@@ -10,7 +10,7 @@ export const userRoutes = express.Router();
 
 // register
 userRoutes.post("/register", async (req, res) => {
-  let { title, username, email, password } = req.body;
+  let { title, username, email, password, confirmPassword } = req.body;
   try {
     if (!title) {
       res.status(400);
@@ -32,7 +32,13 @@ userRoutes.post("/register", async (req, res) => {
       res.status(400);
       return res.json({ status: true, msg: "password fail" });
     }
-
+    if (password != confirmPassword) {
+      res.status(400);
+      return res.json({
+        status: true,
+        msg: "confirmPassword do not match password",
+      });
+    }
     let hash_pw = await hashPassword(password);
 
     await client.query(

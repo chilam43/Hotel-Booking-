@@ -8,6 +8,7 @@ document
     formObject["username"] = form.username.value;
     formObject["email"] = form.email.value;
     formObject["password"] = form.password.value;
+    formObject["confirmPassword"] = form.confirmPassword.value;
     const res = await fetch("/register", {
       method: "POST",
       headers: {
