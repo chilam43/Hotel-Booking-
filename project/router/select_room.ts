@@ -24,23 +24,6 @@ bookingroute.post("/checkava", async function (req, res) {
     [go, stay]
   );
 
-  // let data = await client.query(`select * from room`);
-  console.log(data.rows);
-  let arr = [];
-  for (let pick of data.rows) {
-    arr.push(pick.type_id);
-  }
 
-  let a = arr.reduce(function (previous, current) {
-    {
-      if (previous[current] == null) {
-        previous[current] = 0;
-      }
-      previous[current] += 1;
-    }
-    return previous;
-  }, {});
-  console.log(a);
-
-  res.json(a);
+  res.json({ data: data.rows });
 });
