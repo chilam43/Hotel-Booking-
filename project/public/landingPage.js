@@ -145,9 +145,10 @@ document
     const formObject = {};
     formObject["checkIn"] = form.checkIn.value;
     formObject["checkOut"] = form.checkOut.value;
-    console.log(formObject)
+    console.log(formObject);
     console.log("done");
-    const res = await fetch("/search-room", { // change /register
+    const res = await fetch("/search-room", {
+      // change /register
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -159,14 +160,14 @@ document
     // document.querySelector("#contact-result").textContent = result;
   });
 
-checkAvailability.addEventListener('click', async function () {
+checkAvailability.addEventListener("click", async function () {
   // // window.location = path.join(__dirname, "/select_room.html")
   // const checkAva = await fetch("/search", {
   //     method: "POST",
   // });
 
-  location.href = "/select_room.html"
-})
+  location.href = "/select_room.html";
+});
 
 // sweetAlert
 
@@ -179,24 +180,27 @@ currentForm.addEventListener("submit", (e) => {
   location.href = `/select_room.html?checkIn=${checkInDate}&checkOutDate=${checkOutDate}`;
 });
 
-window.onload = async () => {
-  const userobj = await fetch("/currentUser");
-  const res = await userobj.json();
-  console.log(res);
+// window.onload = async () => {
+//   const userobj = await fetch("/currentUser");
+//   const res = await userobj.json();
+//   console.log(res);
 
-  if (res.user) {
-    document.querySelector("#loginLogout").textContent = "logout";
-    document
-      .querySelector("#loginLogoutLink")
-      .addEventListener("click", async (e) => {
-        e.preventDefault();
-        // 唔比佢load
-        await fetch("/logout");
-        // 等佢Del完
-        location.reload();
-        // F5
-      });
-  } else {
-    document.querySelector("#loginLogout").textContent = "Login";
-  }
-};
+//   if (res.user) {
+//     document.querySelector("#loginLogout").textContent = "logout";
+//     document.querySelector("#register").textContent =
+//       res.user.title + "." + res.user.name;
+//     document
+//       .querySelector("#loginLogoutLink")
+//       .addEventListener("click", async (e) => {
+//         e.preventDefault();
+//         // 唔比佢load
+//         await fetch("/logout");
+//         // 等佢Del完
+//         location.reload();
+//         // F5
+//       });
+//   } else {
+//     document.querySelector("#loginLogout").textContent = "Login";
+//     document.querySelector("#register").textContent = "Sign-up";
+//   }
+// };

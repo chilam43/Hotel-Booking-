@@ -9,7 +9,7 @@ export async function hashPassword(plainPassword: string) {
   const hash: string = await bcrypt.hash(plainPassword, SALT_ROUNDS);
   return hash;
 }
-
+//hi
 /**
  * @params plainPassword: supplied when login
  * @params hashedPassword: looked up from database
