@@ -554,9 +554,16 @@
 
     const btn = document.getElementById("handinInfo");
     btn.addEventListener("click", () => {
+
       console.log(dateNow.value, checkoutDate.value, totalday.textContent, amount)
       location.href = `/payment.html?dateArrive=${dateNow.value}&dateLater=${checkoutDate.value}&daylength=${totalday.textContent}$price=${amount}`;
-     
+
+      // console.log(dateNow.value,dateLater.value,totalday.textContent,amount)
+      // location.href = `/payment.html?dateArrive=${dateNow}&dateLater=${dateLater}&daylength=${totalday}$price=${amount}`;
+
+      // console.log(dateNow.value, dateLater.value, totalday.textContent, amount)
+      // location.href = `/payment.html?dateArrive=${dateNow}&dateLater=${dateLater}&daylength=${totalday}$price=${amount}`;
+
     });
 
   </script>
