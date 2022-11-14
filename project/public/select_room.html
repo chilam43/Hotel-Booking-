@@ -418,9 +418,13 @@
   </script>
 
   <script>
-    window.onload = async () => {
+    console.log('here');
+    main()
+    async function main() {
       // should be inside window.onload
+      console.log("window on load")
       const searchParams = new URLSearchParams(location.search)
+      console.log(searchParams);
       const dateArrive = searchParams.get("checkIn");
       const dateLater = searchParams.get("checkOutDate");
       console.log(dateArrive, dateLater);
@@ -488,11 +492,11 @@
 
   <script>
     let dateNow = document.querySelector("#checkinDate1")
-    let dateLater = document.querySelector("#checkoutDate1")
+    let checkoutDate = document.querySelector("#checkoutDate1")
     let totalday = document.querySelector("#totalDay")
     let amount = 0;
     console.log(dateNow)
-    console.log(dateLater)
+    console.log(checkoutDate)
     console.log(totalday)
     console.log(amount)
 
@@ -545,13 +549,13 @@
     })
 
 
-    console.log(dateNow, dateLater, totalday, amount)
+    console.log(dateNow, checkoutDate, totalday, amount)
 
 
     const btn = document.getElementById("handinInfo");
     btn.addEventListener("click", () => {
-      console.log(dateNow.value, dateLater.value, totalday.textContent, amount)
-      location.href = `/payment.html?dateArrive=${dateNow}&dateLater=${dateLater}&daylength=${totalday}$price=${amount}`;
+      console.log(dateNow.value, checkoutDate.value, totalday.textContent, amount)
+      location.href = `/payment.html?dateArrive=${dateNow.value}&dateLater=${checkoutDate.value}&daylength=${totalday.textContent}$price=${amount}`;
      
     });
 
