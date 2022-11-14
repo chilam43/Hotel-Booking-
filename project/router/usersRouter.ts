@@ -10,7 +10,15 @@ export const userRoutes = express.Router();
 
 // register
 userRoutes.post("/register", async (req, res) => {
-  let { title, username, email, password, confirmPassword } = req.body;
+  let {
+    title,
+    username,
+    email,
+    password,
+    confirmPassword,
+    checkBox1,
+    checkBox2,
+  } = req.body;
   try {
     if (!title) {
       res.status(400);
@@ -28,15 +36,25 @@ userRoutes.post("/register", async (req, res) => {
       res.status(400);
       return res.json({ status: true, msg: "password fail" });
     }
-    if (password < 7) {
+    if (password.length < 7) {
       res.status(400);
-      return res.json({ status: true, msg: "password not " });
+      return res.json({
+        status: true,
+        msg: "password should more than 7 words ",
+      });
     }
     if (password != confirmPassword) {
       res.status(400);
       return res.json({
         status: true,
         msg: "confirmPassword do not match password",
+      });
+    }
+    if (checkBox1 != true && checkBox2 != true) {
+      res.status(400);
+      return res.json({
+        status: true,
+        msg: "Please check the ACKNOWLEDGMENT",
       });
     }
     let hash_pw = await hashPassword(password);
@@ -46,6 +64,7 @@ userRoutes.post("/register", async (req, res) => {
     VALUES ($1, $2, $3, $4)`,
       [title, username, email, hash_pw]
     );
+    res.json({ status: true, msg: "success" });
   } catch (error) {
     console.log(error);
 

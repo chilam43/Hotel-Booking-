@@ -1,8 +1,6 @@
 window.onload = async () => {
   const userobj = await fetch("/currentUser");
   const res = await userobj.json();
-  console.log(res);
-
   if (res.user) {
     document.querySelector("#loginLogout").textContent = "logout";
     document.querySelector("#register").textContent =
