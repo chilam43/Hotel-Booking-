@@ -30,7 +30,7 @@ userRoutes.post("/register", async (req, res) => {
     }
     if (password < 7) {
       res.status(400);
-      return res.json({ status: true, msg: "password fail" });
+      return res.json({ status: true, msg: "password not " });
     }
     if (password != confirmPassword) {
       res.status(400);
