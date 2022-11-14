@@ -138,34 +138,34 @@ document.addEventListener("click", (event) => {
 
 // submit
 document
-    .querySelector("#form-check-availability")
-    .addEventListener("submit", async function (event) {
-        event.preventDefault();
-        const form = event.target;
-        const formObject = {};
-        formObject["checkIn"] = form.checkIn.value;
-        formObject["checkOut"] = form.checkOut.value;
-        console.log(formObject)
-        console.log("done");
-        const res = await fetch("/search-room", { // change /register
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formObject),
-        });
-        const result = await res.json();
-        console.log(result);
-        // document.querySelector("#contact-result").textContent = result;
+  .querySelector("#form-check-availability")
+  .addEventListener("submit", async function (event) {
+    event.preventDefault();
+    const form = event.target;
+    const formObject = {};
+    formObject["checkIn"] = form.checkIn.value;
+    formObject["checkOut"] = form.checkOut.value;
+    console.log(formObject)
+    console.log("done");
+    const res = await fetch("/search-room", { // change /register
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formObject),
     });
+    const result = await res.json();
+    console.log(result);
+    // document.querySelector("#contact-result").textContent = result;
+  });
 
 checkAvailability.addEventListener('click', async function () {
-    // // window.location = path.join(__dirname, "/select_room.html")
-    // const checkAva = await fetch("/search", {
-    //     method: "POST",
-    // });
+  // // window.location = path.join(__dirname, "/select_room.html")
+  // const checkAva = await fetch("/search", {
+  //     method: "POST",
+  // });
 
-    location.href = "/select_room.html"
+  location.href = "/select_room.html"
 })
 
 // sweetAlert
