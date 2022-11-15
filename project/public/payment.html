@@ -5,91 +5,132 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Payment</title>
+    <meta name="description" content="A demo of a payment on Stripe" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="payment.css" />
+    <script src="https://js.stripe.com/v3/"></script>
   </head>
   <body>
-    <form id="form">
+    <form id="payment-form">
       <div class="profileContainer">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="profileInfoHead">PROFILE INFORMATION</div>
-            <div style="display: flex">
-              <div>
-                <select
-                  class="form-select"
-                  id="title"
-                  name="title"
-                  aria-label="Default select example"
-                >
-                  <option value="1">MR</option>
-                  <option value="2">MS</option>
-                  <option value="3">MRS</option>
-                  <option value="4">Sir</option>
-                  <option value="5">Dr</option>
-                  <option value="6">Mx</option>
-                </select>
-              </div>
-              <div>
-                <input type="text" id="username" name="username" />
-              </div>
-            </div>
+        <h3 class="profileInfoHead">PROFILE INFORMATION</h3>
+
+        <div>
+          <select
+            class="form-select input-pro"
+            id="title"
+            name="title"
+            aria-label="Default select example"
+          >
+            <option value="1">MR</option>
+            <option value="2">MS</option>
+            <option value="3">MRS</option>
+            <option value="4">Sir</option>
+            <option value="5">Dr</option>
+            <option value="6">Mx</option>
+          </select>
+        </div>
+        <div>
+          <input
+            type="text"
+            class="input-pro"
+            id="username"
+            name="username"
+            placeholder="Name *"
+          />
+        </div>
+      </div>
+
+      <div class="label">
+        <label for="emailAddress">Email Address</label>
+        <input
+          type="text"
+          class="input-pro"
+          id="emailAddress"
+          name="email"
+          placeholder="Email Address *"
+        />
+      </div>
+      <div class="paymeny-container">
+        <h3></h3>
+      </div>
+      <button
+        type="submit"
+        id="payment-submit"
+        action="/create-checkout-session"
+        method="POST"
+      >
+        Complete Booking
+      </button>
+      <!-- add here -->
+      <h3></h3>
+      <h3>Payment Information</h3>
+      <div id="payment-element">
+        <!--Stripe.js injects the Payment Element-->
+      </div>
+      <button id="submit">
+        <div class="spinner hidden" id="spinner"></div>
+        <span id="button-text">Pay now</span>
+      </button>
+      <div id="payment-message" class="hidden"></div>
+    </form>
+
+    <form>
+      <div class="col-sm rightbox">
+        <div class="rightbigbox">
+          <h3 class="rightsmallbox">Your stay</h3>
+          <!-- box 1  -->
+          <div class="rightsmallbox">
+            <div class="fixedcheckin"><b>Check On Time</b><br />12:00 noon</div>
+            <div class="fixedcheckin"><b>Check Out Time</b><br />15:00 pm</div>
           </div>
-          <div class="col-md-6">
-            <label for="emailAddress">Email Address</label>
-            <input type="text" id="emailAddress" name="email" />
-          </div>
-          <div class="paymeny-container">
-            <h3>Payment Information</h3>
-            <input
-              type="tel"
-              name="Card-Number"
-              placeholder="Card Number *"
-              style="width: 300px"
-            />
+          <!-- box 2 -->
+          <div class="rightsmallbox">
             <div>
-              <input
-                autocomplete="off"
-                class="exp"
-                id="month"
-                maxlength="2"
-                pattern="[0-9]*"
-                inputmode="numerical"
-                placeholder="MM"
-                type="text"
-                data-pattern-validate
-                style="width: 50px"
-              />
-              <input
-                autocomplete="off"
-                class="exp"
-                id="year"
-                maxlength="2"
-                pattern="[0-9]*"
-                inputmode="numerical"
-                placeholder="YY"
-                type="text"
-                data-pattern-validate
-                style="width: 50px"
-              />
-              <input
-                name="Card-CVV"
-                placeholder="CVV *"
-                style="width: 174px"
-                maxlength="3"
-                pattern="[0-9]*"
-                inputmode="numerical"
-                type="text"
-                data-pattern-validate
-              />
+              <div><b>Check In</b></div>
+              <input type="text" id="checkinDate1" name="in" readonly />
             </div>
-            <input
-              type="text"
-              name="Card-Number"
-              placeholder="Name On Card *"
-              style="width: 300px"
-            />
+            <div>
+              <div><b> Check Out</b></div>
+              <input type="text" id="checkoutDate1" name="out" readonly />
+            </div>
+            <!-- box 3 -->
           </div>
+          <!-- box2 end box 3 -->
+          <div class="rightsmallbox">
+            <div>
+              <div>Adule</div>
+              <div id="adult">2</div>
+            </div>
+            <div>
+              <div>Child</div>
+              <div id="child">0</div>
+            </div>
+          </div>
+          <!--room tye  -->
+          <div class="rightsmallbox">
+            <div class="fixedcheckin"><b>Tota days: |</b></div>
+            <div class="fixedcheckin" id="totalDay">0</div>
+          </div>
+          <!-- room type end day -->
+          <div class="rightsmallbox">
+            <div><b>Room type |</b></div>
+            <div class="choosetype" id="choosetype">A</div>
+          </div>
+          <!-- day total -->
+
+          <div class="rightsmallbox">
+            <div class="fixedcheckin"><b>Tota: |</b></div>
+            <div class="money-con">
+              <sapn class="moneyLogo" id="moneyLogo">$</sapn>
+              <span class="fixedcheckin" id="amount">0</span>
+            </div>
+          </div>
+          <!--  total submit -->
         </div>
       </div>
     </form>
   </body>
+  <script src="payment.js"></script>
+  <script src="https://js.stripe.com/v3/"></script>
 </html>
