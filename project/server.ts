@@ -12,10 +12,10 @@ import { paymentHookRouter } from "./router/paymentHookRouter";
 
 
 client.connect();
+require("dotenv").config()
 export const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY)
 const app = express();
 // payment
-require("dotenv").config()
 
 app.use(
   expressSession({
@@ -52,7 +52,7 @@ app.use(paymentHookRouter)
 app.post("/create-payment-intent", async (req, res) => {
   try {
 
-    const { amount } = req.query;
+    const { amount } = req.body;
     console.log('amount received', amount);
     // Create a PaymentIntent with the order amount and currency
 
@@ -72,7 +72,6 @@ app.post("/create-payment-intent", async (req, res) => {
     res.send({
       clientSecret: null
     });
-
 
   }
 

@@ -540,12 +540,12 @@
             })
 
 
-            console.log(dateNow, checkoutDate, totalday, amount)
+            // console.log(dateNow, checkoutDate, totalday, amount)
 
 
             const btn = document.getElementById("handinInfo");
             btn.addEventListener("click", async () => {
-
+                location.href = `/payment.html?dateArrive=${dateNow.value}&dateLater=${checkoutDate.value}&daylength=${totalday.textContent}&price=${amount}`;
                 console.log(dateNow.value, checkoutDate.value, totalday.textContent, amount, )
                 
                 let req = {
@@ -586,16 +586,16 @@
   </script>
 
   <script>
-    console.log('here');
+    // console.log('here');
     main()
     async function main() {
       // should be inside window.onload
-      console.log("window on load")
+    //   console.log("window on load")
       const searchParams = new URLSearchParams(location.search)
       console.log(searchParams);
       const dateArrive = searchParams.get("checkIn");
       const dateLater = searchParams.get("checkOutDate");
-      console.log(dateArrive, dateLater);
+    //   console.log(dateArrive, dateLater);
       document.querySelector("#checkinDate").value = dateArrive
       document.querySelector("#checkoutDate").value = dateLater
       document.querySelector("#checkinDate1").value = dateArrive
@@ -612,7 +612,8 @@
 
       form = {}
 
-      form["checkindate"] = a.in.value
+      let abc = form["checkindate"] = a.in.value
+      console.log(abc)
       form["checkoutdate"] = a.out.value
 
       let req = {
@@ -623,7 +624,7 @@
       let res = await fetch("/checkava", req)
       let roomAva = await res.json()
 
-      console.log(roomAva);
+    //   console.log(roomAva);
 
       let searchArr = ["-1", "A", "B", "C", "D"]
       let roomCount = roomAva.map(v => v.type_id); // [4,4,4,4,3,3,3,2,2]
@@ -638,7 +639,7 @@
         }
       }
 
-      console.log(roomCointMap);
+    //   console.log(roomCointMap);
 
       for (let i = 1; i < 5; i++) {
 

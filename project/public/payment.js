@@ -1,10 +1,16 @@
 const url = new URL(window.location.href)
 const searchParams = new URLSearchParams(location.search)
-const amount = parseInt(url.searchParams.get('price'))
+const amount = url.searchParams.get('price')
 const checkIn = (url.searchParams.get('dateArrive'))
 const checkOut = (url.searchParams.get('dateLater'))
 const totalDate = parseInt(url.searchParams.get('daylength'))
 const roomType = url.searchParams.get('roomType')
+
+document.querySelector("#checkinDate1").value = checkIn;
+document.querySelector("#checkoutDate1").value = checkOut;
+document.querySelector("#totalDay").textContent = totalDate;
+document.querySelector("#amount").textContent = amount;
+document.querySelector(".choosetype").textContent = roomType;
 // toString(checkIn)
 // toString(checkOut)
 // console.log(amount);
@@ -69,7 +75,8 @@ async function initialize() {
     const appearance = {
         theme: 'stripe',
     };
-    elements = stripe.elements({ appearance, clientSecret });
+
+    elements = stripe.elements({ appearance, clientSecret }); // error
 
     const paymentElement = elements.create("payment");
     paymentElement.mount("#payment-element");
@@ -157,17 +164,8 @@ function setLoading(isLoading) {
         document.querySelector("#button-text").classList.remove("hidden");
     }
 }
-/* 
-1. 轉TS
-2. 用total price比錢 id=amount
-3. 連返去database拎order id，棄用json (playground.js line 11)
-4. 用咩方法確認已經付款
-*/
 
-document.querySelector("#checkinDate1").value = checkIn;
-document.querySelector("#checkoutDate1").value = checkOut;
-document.querySelector("#totalDay").textContent = totalDate;
-document.querySelector("#amount").textContent = amount;
-document.querySelector(".choosetype").textContent = roomType;
+
+
 
 

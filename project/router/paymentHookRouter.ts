@@ -12,7 +12,7 @@ paymentHookRouter.post('/hooks', bodyParser.raw({ type: "application/json" }), a
 
     // matching these webhook is from stripe
 
-    let event;
+    // let event;
 
     try {
         event = stripe.webhooks.constructEvent(payload, sig, signingsecret)
@@ -21,9 +21,10 @@ paymentHookRouter.post('/hooks', bodyParser.raw({ type: "application/json" }), a
         res.status(400).json({ success: false })
         return
     }
-    console.log(event.type)
-    console.log(event.data.object)
-    console.log(event.data.object.id)
+
+    // console.log(event.type)
+    // console.log(event.data.object)
+    // console.log(event.data.object.id)
 
 
     res.json({

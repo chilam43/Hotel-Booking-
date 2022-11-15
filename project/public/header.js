@@ -16,8 +16,8 @@ window.onload = async () => {
         // F5
       });
   } else {
-    document.querySelector("#loginLogout").textContent = "Login";
-    document.querySelector("#register").textContent = "Sign-up";
+    // document.querySelector("#loginLogout").textContent = "Login";
+    // document.querySelector("#register").textContent = "Sign-up";
   }
 };
 
