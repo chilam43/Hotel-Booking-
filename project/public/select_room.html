@@ -555,8 +555,8 @@
                         dateNow: dateNow.value,
                         checkoutDate: checkoutDate.value,
                         totalday: totalday.textContent,
-                        roomType: roomType
-                        // amount,
+                        roomType: roomType,
+                        totalprice:amount
                     }
                     )
                 }
@@ -564,7 +564,7 @@
                 let res = await fetch("/blockroom", req)     
                 let result = await res.json()
 
-                location.href = `/payment.html?dateArrive=${dateNow.value}&dateLater=${checkoutDate.value}&daylength=${totalday.textContent}$price=${amount}`;
+                //***** NO DEL  location.href = `/payment.html?dateArrive=${dateNow.value}&dateLater=${checkoutDate.value}&daylength=${totalday.textContent}$price=${amount}`;
 
             });
 
