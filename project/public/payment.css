@@ -20,14 +20,15 @@
 #username {
   width: 100% !important;
 }
-.label {
-  padding: 0.25rem;
+label {
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
   display: block;
   font-size: 0.93rem;
 }
 input:focus {
   outline: none;
-  border: 1px solid #948872;
+  border: 2px solid #948872;
 }
 
 /* Variables */
@@ -172,4 +173,65 @@ button:disabled {
     width: 80vw;
     min-width: initial;
   }
+}
+.rightsmallbox {
+  padding-bottom: 1em;
+}
+#checkinDate1,
+#checkoutDate1 {
+  border: none;
+  font-family: "Futura Book", Arial, sans-serif;
+  font-size: inherit;
+  width: 7.8rem;
+  /* outline: none; */
+}
+.label-2 {
+  color: #574e3d;
+}
+
+.topBar {
+  background-color: #686863;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.header-link {
+  color: white;
+  text-decoration: none;
+}
+
+.header-link:hover {
+  color: #304963;
+}
+
+.whiteButton {
+  background-color: white;
+  transition-duration: 0.4s;
+  color: black;
+  border-radius: 6px;
+  width: 120px;
+  height: 36px;
+}
+
+.whiteButton:hover {
+  background-color: #948872;
+  color: white;
+}
+
+.brownButton {
+  background-color: #948872;
+  transition-duration: 0.4s;
+  color: white;
+  border-radius: 6px;
+  width: 120px;
+  height: 36px;
+}
+
+.brownButton:hover {
+  background-color: white;
+  color: black;
+}
+
+h2,
+h3 {
+  color: #686863;
 }

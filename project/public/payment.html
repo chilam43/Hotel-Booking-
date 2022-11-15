@@ -8,9 +8,14 @@
     <meta name="description" content="A demo of a payment on Stripe" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="payment.css" />
+    <link rel="stylesheet" href="landing.css" />
     <script src="https://js.stripe.com/v3/"></script>
   </head>
+
   <body>
+    <!-- harder -->
+
+    <!-- payment -->
     <form id="payment-form">
       <div class="profileContainer">
         <h3 class="profileInfoHead">PROFILE INFORMATION</h3>
@@ -54,16 +59,16 @@
       <div class="paymeny-container">
         <h3></h3>
       </div>
-      <button
+      <!-- <button
         type="submit"
         id="payment-submit"
         action="/create-checkout-session"
         method="POST"
       >
         Complete Booking
-      </button>
+      </button> -->
       <!-- add here -->
-      <h3></h3>
+
       <h3>Payment Information</h3>
       <div id="payment-element">
         <!--Stripe.js injects the Payment Element-->
@@ -78,49 +83,49 @@
     <form>
       <div class="col-sm rightbox">
         <div class="rightbigbox">
-          <h3 class="rightsmallbox">Your stay</h3>
+          <h2 class="rightsmallbox">Your stay</h2>
           <!-- box 1  -->
-          <div class="rightsmallbox">
-            <div class="fixedcheckin"><b>Check On Time</b><br />12:00 noon</div>
-            <div class="fixedcheckin"><b>Check Out Time</b><br />15:00 pm</div>
+          <div class="rightsmallbox" style="display: flex">
+            <div class="fixedcheckin label-2" style="margin: 0em 1em 0em 0em">
+              <b>Check In Time:</b><br />15:00PM
+            </div>
+            <div class="fixedcheckin label-2">
+              <b>Check Out Time:</b><br />12:00PM
+            </div>
           </div>
           <!-- box 2 -->
           <div class="rightsmallbox">
             <div>
-              <div><b>Check In</b></div>
+              <div class="label-2"><b>Check In:</b></div>
               <input type="text" id="checkinDate1" name="in" readonly />
-            </div>
-            <div>
-              <div><b> Check Out</b></div>
               <input type="text" id="checkoutDate1" name="out" readonly />
             </div>
-            <!-- box 3 -->
           </div>
           <!-- box2 end box 3 -->
           <div class="rightsmallbox">
             <div>
-              <div>Adule</div>
-              <div id="adult">2</div>
-            </div>
-            <div>
-              <div>Child</div>
-              <div id="child">0</div>
+              <span class="label-2"><b>Adule:</b></span>
+              <span id="adult">2</span>
+              <span class="label-2" style="margin-left: 3.9rem"
+                ><b>Child:</b></span
+              >
+              <span id="child">0</span>
             </div>
           </div>
           <!--room tye  -->
           <div class="rightsmallbox">
-            <div class="fixedcheckin"><b>Tota days: |</b></div>
+            <div class="fixedcheckin label-2"><b>Tota days: </b></div>
             <div class="fixedcheckin" id="totalDay">0</div>
           </div>
           <!-- room type end day -->
           <div class="rightsmallbox">
-            <div><b>Room type |</b></div>
+            <div class="label-2"><b>Room Type </b></div>
             <div class="choosetype" id="choosetype">A</div>
           </div>
           <!-- day total -->
 
           <div class="rightsmallbox">
-            <div class="fixedcheckin"><b>Tota: |</b></div>
+            <div class="fixedcheckin label-2"><b>Total: </b></div>
             <div class="money-con">
               <sapn class="moneyLogo" id="moneyLogo">$</sapn>
               <span class="fixedcheckin" id="amount">0</span>

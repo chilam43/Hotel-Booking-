@@ -13,9 +13,9 @@ import { paymentHookRouter } from "./router/paymentHookRouter";
 
 client.connect();
 require("dotenv").config()
-export const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY)
+export const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY) // payment
 const app = express();
-// payment
+
 
 app.use(
   expressSession({

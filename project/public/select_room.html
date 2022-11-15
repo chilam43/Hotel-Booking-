@@ -542,10 +542,11 @@
 
             // console.log(dateNow, checkoutDate, totalday, amount)
 
-
+            // const total = amount * 100
+            // const roomTypeType = document.querySelector(".choosetype").textContent
             const btn = document.getElementById("handinInfo");
             btn.addEventListener("click", async () => {
-                location.href = `/payment.html?dateArrive=${dateNow.value}&dateLater=${checkoutDate.value}&daylength=${totalday.textContent}&price=${amount}`;
+                location.href = `/payment.html?dateArrive=${dateNow.value}&dateLater=${checkoutDate.value}&daylength=${totalday.textContent}&price=${amount}&roomType=${roomTypeType}`;
                 console.log(dateNow.value, checkoutDate.value, totalday.textContent, amount, )
                 
                 let req = {
