@@ -82,21 +82,6 @@ document.addEventListener("DOMContentLoaded", function () {
     selectable: true,
 
     dateClick: function (info) {
-      // if (check == true) {
-      //     document.getElementById("check").value = info.dateStr;
-      //     check = !true;
-      // }
-      // if (check == true) {
-      //     let a = document.getElementById("check-out").value = info.dateStr;
-      //     check = !true;
-      // }
-
-      // if (checkIn.value && checkOut.value && checkIn.value > checkOut.value) {
-
-      //     alert("Wrong");
-      //     return;
-      //     // todo replace
-      // }
 
       console.log(info.dateStr);
 
@@ -204,3 +189,5 @@ currentForm.addEventListener("submit", (e) => {
 //     document.querySelector("#register").textContent = "Sign-up";
 //   }
 // };
+
+

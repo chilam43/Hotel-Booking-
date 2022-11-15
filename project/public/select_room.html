@@ -490,6 +490,7 @@
     let dateNow = document.querySelector("#checkinDate1")
     let dateLater = document.querySelector("#checkoutDate1")
     let totalday = document.querySelector("#totalDay")
+    let roomType = document.querySelector(".choosetype")
     let amount = 0;
     console.log(dateNow)
     console.log(dateLater)
@@ -550,14 +551,15 @@
 
     const btn = document.getElementById("handinInfo");
     btn.addEventListener("click", () => {
-<<<<<<< HEAD
+
       console.log(dateNow.value,dateLater.value,totalday.textContent,amount)
       // location.href = `/payment.html?dateArrive=${dateNow}&dateLater=${dateLater}&daylength=${totalday}$price=${amount}`;
-=======
+
       console.log(dateNow.value, dateLater.value, totalday.textContent, amount)
-      location.href = `/payment.html?dateArrive=${dateNow}&dateLater=${dateLater}&daylength=${totalday}$price=${amount}`;
+      location.href = `/payment.html?dateArrive=${dateNow}&dateLater=${dateLater}&daylength=${totalday}&price=${amount}&roomtype=${roomType}`;
+      //location.href = `/payment.html?dateArrive=2022-11-01&dateLater=2022-11-02&daylength=1&price=500&roomtype=A`;
      
->>>>>>> 2bcc8e0fab52d6291256f1cbe48c68d493b7edda
+
     });
 
   </script>
