@@ -111,7 +111,7 @@ userRoutes.post("/login", async (req, res) => {
       name: users.rows[0].name,
       title: users.rows[0].title,
     };
-    console.log("session:", req.session.user);
+    console.log("session:", req.session.user.id);
     res.status(200).json({ status: true, msg: "login success" });
   } catch (error) {
     console.log(error);
@@ -130,3 +130,11 @@ userRoutes.get("/logout", (req, res) => {
   req.session.destroy(() => {});
   res.json({});
 });
+
+// userRoutes.post("/userBookingRecord", async (req, res) => {
+
+//   await client.query(
+//     /* sql */ `SELECT user_id FROM booking_record WHERE user_id = $1
+//   `[req.session.user.id]
+//   );
+// });
