@@ -68,7 +68,7 @@ bookingroute.post("/blockroom", async function (req, res) {
   let money = req.body.totalprice; ////important ///////
   let ref = Math.ceil(Math.random() * 99999999);
   console.log(ref);
-  let roomid = await client.query(
+  await client.query(
     /* sql */ `SELECT id
   FROM room
   WHERE id NOT IN (
@@ -84,7 +84,7 @@ bookingroute.post("/blockroom", async function (req, res) {
       )AND type_id = $3`,
     [go, stay, id]
   );
-  console.log(roomid.rows[0].id);
+  // console.log(roomid.rows[0].id);
 
   client.query(
     `INSERT INTO booking_record (room_id,user_id,check_in_date,check_out_date,lock_time,final_price,ref_number)VALUES($1,$2,$3,$4,$5,$6,$7)`,

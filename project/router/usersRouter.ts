@@ -131,10 +131,46 @@ userRoutes.get("/logout", (req, res) => {
   res.json({});
 });
 
-// userRoutes.post("/userBookingRecord", async (req, res) => {
+userRoutes.get("/userBookingRecord", async (req, res) => {
+  let user = req.session.user;
+  const user_id = user?.id || -1;
 
-//   await client.query(
-//     /* sql */ `SELECT user_id FROM booking_record WHERE user_id = $1
-//   `[req.session.user.id]
-//   );
-// });
+  let bookRecord = await client.query(
+    /* sql */ `select 
+    DISTINCT booking_record.* ,
+    room.room_number,
+    type.name 
+    from booking_record 
+    join room on booking_record.room_id = room.id
+    join type on room.type_id = type.id
+    where user_id=$1 
+    and confirm_time is not null`,
+    [user_id]
+  );
+
+  res.json(bookRecord.rows);
+});
+
+userRoutes.get("/cancelBooking/:id", async (req, res) => {
+  console.log(req.params.id);
+
+  // let roomId = req.body;
+
+  let date = new Date();
+
+  let user = req.session.user;
+  const user_id = user?.id || -1;
+
+  // let bookRecord = req.body;
+
+  let cancelBookRecord = await client.query(
+    /* sql */
+    `UPDATE booking_record SET cancel_time = ($1)
+    where id = ($2)
+    and user_id = ($3)`,
+    [date, req.params.id, user_id]
+  );
+  // await function () {};
+  console.log(cancelBookRecord);
+  res.json({});
+});
