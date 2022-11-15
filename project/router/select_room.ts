@@ -58,3 +58,12 @@ bookingroute.post("/checkava", async function (req, res) {
   console.log(data.rows);
   res.json(data.rows);
 });
+
+bookingroute.post("/blockroom", function (req, res) {
+  console.log(req.body);
+  // client.query(
+  //   `INSERT INTO booking_record (room_id,check_in_date,check_outdate,lock_time,final_price)VALUES($1,$2,$3,$4,$5)`,
+  //   []
+  // );
+  res.json("success handin info");
+});

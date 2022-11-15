@@ -2,580 +2,593 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=>, initial-scale=1.0" />
-  <title>select_room!!!!!!</title>
-  <link rel="stylesheet" href="registerStyle.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-  <!-- CSS only -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" />
-  <link rel="stylesheet" href="registerStyle.css" />
-  <link rel="stylesheet" href="select_room.css" />
-  <link rel="stylesheet" href="cal.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=>, initial-scale=1.0" />
+    <title>select_room!!!!!!</title>
+    <link rel="stylesheet" href="registerStyle.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" />
+    <link rel="stylesheet" href="registerStyle.css" />
+    <link rel="stylesheet" href="select_room.css" />
+    <link rel="stylesheet" href="cal.css" />
 
 <body>
-</head>
-<body>
-  <header class="p-3 topBar">
-    <div class="container">
-      <div
-        class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
-      >
-        <a
-          href="/"
-          class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"
-          ><svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="icon icon-tabler icon-tabler-firetruck"
-            width="44"
-            height="44"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="#2c3e50"
-            fill="none"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-            <circle cx="5" cy="17" r="2" />
-            <circle cx="17" cy="17" r="2" />
-            <path d="M7 18h8m4 0h2v-6a5 5 0 0 0 -5 -5h-1l1.5 5h4.5" />
-            <path d="M12 18v-11h3" />
-            <polyline points="3 17 3 12 12 12" />
-            <line x1="3" y1="9" x2="21" y2="3" />
-            <line x1="6" y1="12" x2="6" y2="8" />
-          </svg>
-        </a>
+    </head>
 
-        <ul
-          class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
-        >
-          <li><a href="#" class="header-link px-2">Overview</a></li>
-          <li><a href="#" class="header-link px-2">Register</a></li>
-          <li><a href="#" class="header-link px-2">Wellness</a></li>
-          <li><a href="#" class="header-link px-2">Festive</a></li>
-        </ul>
+    <body>
+        <header class="p-3 topBar">
+            <div class="container">
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"><svg
+                            xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-firetruck" width="44"
+                            height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <circle cx="5" cy="17" r="2" />
+                            <circle cx="17" cy="17" r="2" />
+                            <path d="M7 18h8m4 0h2v-6a5 5 0 0 0 -5 -5h-1l1.5 5h4.5" />
+                            <path d="M12 18v-11h3" />
+                            <polyline points="3 17 3 12 12 12" />
+                            <line x1="3" y1="9" x2="21" y2="3" />
+                            <line x1="6" y1="12" x2="6" y2="8" />
+                        </svg>
+                    </a>
 
-        <div class="text-end">
-          <a id="loginLogoutLink" href="/login.html">
-            <button
-              type="button"
-              class="whiteButton me-2"
-              id="loginLogout"
-            ></button>
-          </a>
-          <a href="/register.html">
-            <button type="button" class="brownButton" id="register"></button>
-          </a>
-        </div>
-      </div>
-    </div>
-  </header>
-  <!--   header ends         -->
+                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                        <li><a href="#" class="header-link px-2">Overview</a></li>
+                        <li><a href="#" class="header-link px-2">Register</a></li>
+                        <li><a href="#" class="header-link px-2">Wellness</a></li>
+                        <li><a href="#" class="header-link px-2">Festive</a></li>
+                    </ul>
 
-  <div class="slogan">
-    <h6>The Peninsula Hong Kong is committed to the highest levels of hygiene, safety and security for our guests. In
-      light of the latest Government regulations and in an effort to protect the health and safety of both our guests
-      and staff members, all guests are required to check-in using the LeaveHomeSafe App, provide proof of receiving the
-      third COVID-19 vaccine dose or the second dose (received within six months), vaccination medical exemption
-      certificate, or recovery record upon entry to the hotel, restaurants and facilities. Each table can seat up to
-      eight guests.</h6>
-  </div>
-  <!-- main body -->
-  <div class="bigcontain">
-    <!-- left and right  -->
-    <div class="container">
-      <div class="row">
-        <!--left   -->
-        <div class="col-sm leftbox">
-          <!-- left big box -->
-          <div class="leftbigbox">
-
-            <div class="leftupbox ">
-              <div class="leftsmallbox all">
-                <div>| Guest</div>
-                <div class="all-left">
-                  <div class="adult">Adult</div>
-                  <div class="child">Child</div>
+                    <div class="text-end">
+                        <a id="loginLogoutLink" href="/login.html">
+                            <button type="button" class="whiteButton me-2" id="loginLogout"></button>
+                        </a>
+                        <a href="/register.html">
+                            <button type="button" class="brownButton" id="register"></button>
+                        </a>
+                    </div>
                 </div>
-              </div>
-              <div class="leftsmallbox all">
-                <div class="checkbutt">| Selete Check-in and Check out date</div>
-                <!-- cal -->
-                <div class="cal vis">
-                  <div id="calendar"></div>
+            </div>
+        </header>
+        <!--   header ends         -->
+
+        <div class="slogan">
+            <h6>The Peninsula Hong Kong is committed to the highest levels of hygiene, safety and security for our
+                guests. In
+                light of the latest Government regulations and in an effort to protect the health and safety of both our
+                guests
+                and staff members, all guests are required to check-in using the LeaveHomeSafe App, provide proof of
+                receiving
+                the
+                third COVID-19 vaccine dose or the second dose (received within six months), vaccination medical
+                exemption
+                certificate, or recovery record upon entry to the hotel, restaurants and facilities. Each table can seat
+                up to
+                eight guests.</h6>
+        </div>
+        <!-- main body -->
+        <div class="bigcontain">
+            <!-- left and right  -->
+            <div class="container">
+                <div class="row">
+                    <!--left   -->
+                    <div class="col-sm leftbox">
+                        <!-- left big box -->
+                        <div class="leftbigbox">
+
+                            <div class="leftupbox ">
+                                <div class="leftsmallbox all">
+                                    <div>| Guest</div>
+                                    <div class="all-left">
+                                        <div class="adult">Adult</div>
+                                        <div class="child">Child</div>
+                                    </div>
+                                </div>
+                                <div class="leftsmallbox all">
+                                    <div class="checkbutt">| Selete Check-in and Check out date</div>
+                                    <!-- cal -->
+                                    <div class="cal vis">
+                                        <div id="calendar"></div>
+                                    </div>
+                                    <!-- cal end -->
+                                </div>
+                                <div class="leftsmallbox all">
+                                    <form id="dateform">
+                                        <label for="live">Check in date:</label>
+                                        <input type="text" id="checkinDate" name="in" maxlength="1" size="2" disabled>
+                                        <br>
+                                        <br>
+                                        <label for="out">Check out date:</label>
+                                        <input type="text" id="checkoutDate" name="out" maxlength="1" size="2" disabled>
+                                        <input type="submit" value="Submit">
+                                    </form>
+                                </div>
+
+                            </div>
+                            <!-- left up box end    left down box starts -->
+                            <div class="leftdownbox">
+                                <div class="roomtype">
+                                    <div><img class="pic" src="./pic/rm1.jpeg"></div>
+                                    <div class="roomtypeA">A</div>
+                                    <div><input id="bookA" type="button" value="Book"></div>
+                                    &nbsp;&nbsp;&nbsp;<h7>$</h7>
+                                    <div id="priceA">500</div>
+                                </div>
+                                <div class="roomtype">
+                                    <div><img class="pic" src="./pic/rm2.jpeg"></div>
+                                    <div class="roomtypeB">B</div>
+                                    <div><input id="bookB" type="button" value="Book"></div>
+                                    &nbsp;&nbsp;&nbsp;<h7>$</h7>
+                                    <div id="priceB">400</div>
+                                </div>
+                                <div class="roomtype">
+                                    <div><img class="pic" src="./pic/rm3.jpeg"></div>
+                                    <div class="roomtypeC">C</div>
+
+                                    <div><input id="bookC" type="button" value="Book"></div>
+                                    &nbsp;&nbsp;&nbsp;<h7>$</h7>
+                                    <div id="priceC">300</div>
+                                </div>
+                                <div class="roomtype">
+                                    <div><img class="pic" src="./pic/rm4.jpeg"></div>
+                                    <div class="roomtypeD">D</div>
+                                    <div><input id="bookD" type="button" value="Book"></div>
+                                    &nbsp;&nbsp;&nbsp;<h7>$</h7>
+                                    <div id="priceD">200</div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- left big box ends -->
+                    </div>
+                    <!-- right -->
+                    <div class="col-sm rightbox">
+
+                        <div class="rightbigbox">
+
+                            <div class="rightsmallbox">Your stay</div>
+                            <!-- box 1  -->
+                            <div class="rightsmallbox">
+                                <div class="fixedcheckin">check in time<br>12:00 noon</div>
+                                <div class="fixedcheckin">check out time<br>15:00 pm</div>
+                            </div>
+                            <!-- box 2 -->
+                            <div class="rightsmallbox">
+
+
+                                <div>
+                                    <div>check in date</div>
+                                    <input type="text" id="checkinDate1" name="in" disabled>
+                                </div>
+                                <div>
+                                    <div>check out date</div>
+                                    <input type="text" id="checkoutDate1" name="out" disabled>
+                                </div>
+                                <!-- box 3 -->
+                            </div>
+                            <!-- box2 end box 3 -->
+                            <div class="rightsmallbox">
+                                <div>
+                                    <div>Adule</div>
+                                    <div id="adult">0</div>
+                                </div>
+                                <div>
+                                    <div>Child</div>
+                                    <div id="child">0</div>
+                                </div>
+                            </div>
+                            <!--room tye  -->
+                            <div class="rightsmallbox">
+                                <div class="fixedcheckin">Tota days: |</div>
+                                <div class="fixedcheckin" id="totalDay">0</div>
+                            </div>
+                            <!-- room type end day -->
+                            <div class="rightsmallbox">
+                                <div id="roomtype">Room type |</div>
+                                <div class="choosetype"></div>
+                            </div>
+                            <!-- day total -->
+
+                            <div class="rightsmallbox">
+                                <div class="fixedcheckin">Tota: |</div>
+                                <div class="fixedcheckin" id="amount">0</div>
+                            </div>
+                            <!--  total submit -->
+                            <div>
+                                <button id="handinInfo"> to next</button>
+                            </div>
+                            <!-- submit end  -->
+                        </div>
+
+                    </div>
+                    <!-- col-sm rightbox end -->
                 </div>
-                <!-- cal end -->
-              </div>
-              <div class="leftsmallbox all">
-                <form id="dateform">
-                  <label for="live">Check in date:</label>
-                  <input type="text" id="checkinDate" name="in" maxlength="1" size="2" disabled>
-                  <br>
-                  <br>
-                  <label for="out">Check out date:</label>
-                  <input type="text" id="checkoutDate" name="out" maxlength="1" size="2" disabled>
-                  <input type="submit" value="Submit">
-                </form>
-              </div>
 
             </div>
-            <!-- left up box end    left down box starts -->
-            <div class="leftdownbox">
-              <div class="roomtype">
-                <div><img class="pic" src="./pic/rm1.jpeg"></div>
-                <div class="roomtypeA">A</div>
-                <div><input id="bookA" type="button" value="Book"></div>
-                &nbsp;&nbsp;&nbsp;<h7>$</h7>
-                <div id="priceA">500</div>
-              </div>
-              <div class="roomtype">
-                <div><img class="pic" src="./pic/rm2.jpeg"></div>
-                <div class="roomtypeB">B</div>
-                <div><input id="bookB" type="button" value="Book"></div>
-                &nbsp;&nbsp;&nbsp;<h7>$</h7>
-                <div id="priceB">400</div>
-              </div>
-              <div class="roomtype">
-                <div><img class="pic" src="./pic/rm3.jpeg"></div>
-                <div class="roomtypeC">C</div>
-
-                <div><input id="bookC" type="button" value="Book"></div>
-                &nbsp;&nbsp;&nbsp;<h7>$</h7>
-                <div id="priceC">300</div>
-              </div>
-              <div class="roomtype">
-                <div><img class="pic" src="./pic/rm4.jpeg"></div>
-                <div class="roomtypeD">D</div>
-                <div><input id="bookD" type="button" value="Book"></div>
-                &nbsp;&nbsp;&nbsp;<h7>$</h7>
-                <div id="priceD">200</div>
-              </div>
-            </div>
-
-          </div>
-
-          <!-- left big box ends -->
         </div>
-        <!-- right -->
-        <div class="col-sm rightbox">
 
-          <div class="rightbigbox">
-
-            <div class="rightsmallbox">Your stay</div>
-            <!-- box 1  -->
-            <div class="rightsmallbox">
-              <div class="fixedcheckin">check in time<br>12:00 noon</div>
-              <div class="fixedcheckin">check out time<br>15:00 pm</div>
-            </div>
-            <!-- box 2 -->
-            <div class="rightsmallbox">
+        <!-- main body ends -->
 
 
-              <div>
-                <div>check in date</div>
-                <input type="text" id="checkinDate1" name="in" disabled>
-              </div>
-              <div>
-                <div>check out date</div>
-                <input type="text" id="checkoutDate1" name="out" disabled>
-              </div>
-              <!-- box 3 -->
-            </div>
-            <!-- box2 end box 3 -->
-            <div class="rightsmallbox">
-              <div>
-                <div>Adule</div>
-                <div id="adult">0</div>
-              </div>
-              <div>
-                <div>Child</div>
-                <div id="child">0</div>
-              </div>
-            </div>
-            <!--room tye  -->
-            <div class="rightsmallbox">
-              <div class="fixedcheckin">Tota days: |</div>
-              <div class="fixedcheckin" id="totalDay">0</div>
-            </div>
-            <!-- room type end day -->
-            <div class="rightsmallbox">
-              <div>Room type |</div>
-              <div class="choosetype"></div>
-            </div>
-            <!-- day total -->
 
-            <div class="rightsmallbox">
-              <div class="fixedcheckin">Tota: |</div>
-              <div class="fixedcheckin" id="amount">0</div>
-            </div>
-            <!--  total submit -->
-            <div>
-              <button id="handinInfo"> to next</button>
-            </div>
-            <!-- submit end  -->
-          </div>
 
+        <!-- below is footer -->
+
+        <div>
+
+            <div>服務條款及細則</div>
         </div>
-        <!-- col-sm rightbox end -->
-      </div>
-
-    </div>
-  </div>
-
-  <!-- main body ends -->
 
 
+        <!-- script  -->
+
+        <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+
+        <script>
+            let i = true;
+            var calendarEl = document.getElementById("calendar");
+
+            document.addEventListener("DOMContentLoaded", function () {
+                var calendar = new FullCalendar.Calendar(calendarEl, {
+                    initialView: "dayGridMonth",
+                    selectable: true,
+
+                    dateClick: function (info) {
+                        console.log(info.dateStr);
+                        if (i == true) {
+                            document.getElementById("checkinDate").value = info.dateStr;
+                            document.getElementById("checkinDate1").value = info.dateStr;
+                            i = !true;
+                        } else {
+                            document.getElementById("checkoutDate").value = info.dateStr;
+                            document.getElementById("checkoutDate1").value = info.dateStr;
+
+                            if (
+                                document.getElementById("checkinDate").value >
+                                document.getElementById("checkoutDate").value
+                            ) {
+                                alert("Wrong");
+                            }
+                        }
+                        let one_day = 1000 * 60 * 60 * 24;
+                        let d1 = new Date(document.getElementById("checkinDate").value);
+                        let d2 = new Date(document.getElementById("checkoutDate").value);
+                        let result = d2 - d1;
+                        let total = result / one_day;
+                        document.getElementById("totalDay").textContent = total;
+                    },
+                });
+                calendar.render();
+            });
+        </script>
+        <script>
+
+            const target = document.querySelector('.checkbutt')
+
+            document.addEventListener('click', (event) => {
+                const withinBoundaries = event.composedPath().includes(target)
+
+                if (withinBoundaries) {
+                    console.log("click")
+                    document.querySelector(".cal").classList.remove("vis")
+                } else {
+                    console.log("remove")
+                    document.querySelector(".cal").classList.add("vis")
+                }
+            })
+        </script>
 
 
-  <!-- below is footer -->
-
-  <div>
-
-    <div>服務條款及細則</div>
-  </div>
 
 
-  <!-- script  -->
 
-  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
+        <!-- <script>
+    document.querySelector("#bookA").addEventListener("click", function () {
 
-  <script>
-    let i = true;
-    var calendarEl = document.getElementById("calendar");
+      let price = parseInt(document.querySelector("#priceA").textContent)
+      let day = parseInt(document.getElementById("totalDay").textContent)
+      document.querySelector(".choosetype").textContent = document.querySelector(".roomtypeA").textContent
+      console.log(price)
+      console.log(day)
+      let sum = price * day
+      document.querySelector("#amount").textContent = sum
+    })
 
-    document.addEventListener("DOMContentLoaded", function () {
-      var calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: "dayGridMonth",
-        selectable: true,
+    document.querySelector("#bookB").addEventListener("click", function () {
 
-        dateClick: function (info) {
-          console.log(info.dateStr);
-          if (i == true) {
-            document.getElementById("checkinDate").value = info.dateStr;
-            document.getElementById("checkinDate1").value = info.dateStr;
-            i = !true;
-          } else {
-            document.getElementById("checkoutDate").value = info.dateStr;
-            document.getElementById("checkoutDate1").value = info.dateStr;
+      let price = parseInt(document.querySelector("#priceB").textContent)
+      let day = parseInt(document.getElementById("totalDay").textContent)
+      document.querySelector(".choosetype").textContent = document.querySelector(".roomtypeB").textContent
+      console.log(price)
+      console.log(day)
+      let sum = price * day
+      document.querySelector("#amount").textContent = sum
+    })
 
-            if (
-              document.getElementById("checkinDate").value >
-              document.getElementById("checkoutDate").value
-            ) {
-              alert("Wrong");
+    document.querySelector("#bookC").addEventListener("click", function () {
+
+      let price = parseInt(document.querySelector("#priceC").textContent)
+      let day = parseInt(document.getElementById("totalDay").textContent)
+      document.querySelector(".choosetype").textContent = document.querySelector(".roomtypeC").textContent
+      console.log(price)
+      console.log(day)
+      let sum = price * day
+      document.querySelector("#amount").textContent = sum
+    })
+
+    document.querySelector("#bookD").addEventListener("click", function () {
+
+      let price = parseInt(document.querySelector("#priceD").textContent)
+      let day = parseInt(document.getElementById("totalDay").textContent)
+      document.querySelector(".choosetype").textContent = document.querySelector(".roomtypeD").textContent
+      console.log(price)
+      console.log(day)
+      let sum = price * day
+      document.querySelector("#amount").textContent = sum
+    })
+
+  </script> -->
+
+        <script>
+
+            let dataForm = document.querySelector("#dateform");
+
+            async function getSubmitDataAndFetch(event) {
+                !!event && event.preventDefault()
+
+                form = {}
+
+                form["checkindate"] = dataForm.in.value
+                form["checkoutdate"] = dataForm.out.value
+
+                let req = {
+                    method: "post",
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(form)
+                }
+                let res = await fetch("/checkava", req)
+
+                let roomAva = await res.json()
+
+                //                0     1    2    3    4
+                let searchArr = ["-1", "A", "B", "C", "D"]
+                let roomCount = roomAva.map(v => v.type_id); // [4,4,4,4,3,3,3,2,2]
+
+                let roomCointMap = {};
+                for (let v of roomCount) {
+                    if (v in roomCointMap) {
+                        roomCointMap[v] += 1
+                    }
+                    else {
+                        roomCointMap[v] = 1
+                    }
+                }
+
+                for (let i = 1; i < 5; i++) {
+
+                    // check if that room exist on the object
+                    // AND (have that type on the object but room count is 0)
+                    if (!roomCointMap[i] || (!!roomCointMap[i] && roomCointMap[i] <= 0)) {
+                        document.getElementById("book" + searchArr[i]).classList.add("vis")
+                    }
+                    else {
+                        document.getElementById("book" + searchArr[i]).classList.remove("vis")
+                    }
+                }
+
+
             }
-          }
-          let one_day = 1000 * 60 * 60 * 24;
-          let d1 = new Date(document.getElementById("checkinDate").value);
-          let d2 = new Date(document.getElementById("checkoutDate").value);
-          let result = d2 - d1;
-          let total = result / one_day;
-          document.getElementById("totalDay").textContent = total;
-        },
-      });
-      calendar.render();
-    });
-  </script>
-  <script>
-
-    const target = document.querySelector('.checkbutt')
-
-    document.addEventListener('click', (event) => {
-      const withinBoundaries = event.composedPath().includes(target)
-
-      if (withinBoundaries) {
-        console.log("click")
-        document.querySelector(".cal").classList.remove("vis")
-      } else {
-        console.log("remove")
-        document.querySelector(".cal").classList.add("vis")
-      }
-    })
-  </script>
 
+            dataForm.addEventListener("submit", async (event) => await getSubmitDataAndFetch(event) );
+
 
+        </script>
 
 
+        <script>
 
-  <script>
-    document.querySelector("#bookA").addEventListener("click", function () {
+            document.querySelector("#bookA").addEventListener("click", function () {
+                // console.log(await checkroomava() + "***********")
+                let price = parseInt(document.querySelector("#priceA").textContent)
+                let day = parseInt(document.getElementById("totalDay").textContent)
+
+                document.querySelector(".choosetype").textContent = document.querySelector(".roomtypeA").textContent
+                console.log(price)
+                console.log(day)
+                let sum = price * day
+                document.querySelector("#amount").textContent = sum
+            })
+
+            document.querySelector("#bookB").addEventListener("click", function () {
+
+                let price = parseInt(document.querySelector("#priceB").textContent)
+                let day = parseInt(document.getElementById("totalDay").textContent)
+                document.querySelector(".choosetype").textContent = document.querySelector(".roomtypeB").textContent
+                console.log(price)
+                console.log(day)
+                let sum = price * day
+                document.querySelector("#amount").textContent = sum
+            })
+
+            document.querySelector("#bookC").addEventListener("click", function () {
+
+                let price = parseInt(document.querySelector("#priceC").textContent)
+                let day = parseInt(document.getElementById("totalDay").textContent)
+                document.querySelector(".choosetype").textContent = document.querySelector(".roomtypeC").textContent
+                console.log(price)
+                console.log(day)
+                let sum = price * day
+                document.querySelector("#amount").textContent = sum
+            })
+
+            document.querySelector("#bookD").addEventListener("click", function () {
+
+                let price = parseInt(document.querySelector("#priceD").textContent)
+                let day = parseInt(document.getElementById("totalDay").textContent)
+                document.querySelector(".choosetype").textContent = document.querySelector(".roomtypeD").textContent
+                console.log(price)
+                console.log(day)
+                let sum = price * day
+                document.querySelector("#amount").textContent = sum
+            })
+
+        </script>
+
+
+
+        <script>
+            console.log('here');
+            main()
+            async function main() {
+                // should be inside window.onload
+                console.log("window on load")
+                const searchParams = new URLSearchParams(location.search)
+                console.log(searchParams);
+                const dateArrive = searchParams.get("checkIn");
+                const dateLater = searchParams.get("checkOutDate");
+                console.log(dateArrive, dateLater);
+                document.querySelector("#checkinDate").value = dateArrive
+                document.querySelector("#checkoutDate").value = dateLater
+                document.querySelector("#checkinDate1").value = dateArrive
+                document.querySelector("#checkoutDate1").value = dateLater
+
+                let one_day = 1000 * 60 * 60 * 24;
+                let d1 = new Date(document.getElementById("checkinDate").value);
+                let d2 = new Date(document.getElementById("checkoutDate").value);
+                let result = d2 - d1;
+                let total = result / one_day;
+                document.getElementById("totalDay").textContent = total;
+
+                /////////window onload search /////////
+
+                await getSubmitDataAndFetch(null)
+
+            };
+        </script>
+
+
+
+        <script>
+            let dateNow = document.querySelector("#checkinDate1")
+            let checkoutDate = document.querySelector("#checkoutDate1")
+            let totalday = document.querySelector("#totalDay")
+            let roomtype = document.querySelector(".roomtype")
+            let amount = 0;
+            let roomType = null
 
-      let price = parseInt(document.querySelector("#priceA").textContent)
-      let day = parseInt(document.getElementById("totalDay").textContent)
-      document.querySelector(".choosetype").textContent = document.querySelector(".roomtypeA").textContent
-      console.log(price)
-      console.log(day)
-      let sum = price * day
-      document.querySelector("#amount").textContent = sum
-    })
+            console.log(dateNow)
+            console.log(checkoutDate)
+            console.log(totalday)
+            console.log(amount)
 
-    document.querySelector("#bookB").addEventListener("click", function () {
+            document.querySelector("#bookA").addEventListener("click", function () {
 
-      let price = parseInt(document.querySelector("#priceB").textContent)
-      let day = parseInt(document.getElementById("totalDay").textContent)
-      document.querySelector(".choosetype").textContent = document.querySelector(".roomtypeB").textContent
-      console.log(price)
-      console.log(day)
-      let sum = price * day
-      document.querySelector("#amount").textContent = sum
-    })
+                let price = parseInt(document.querySelector("#priceA").textContent)
+                let day = parseInt(document.getElementById("totalDay").textContent)
+                document.querySelector(".choosetype").textContent = document.querySelector(".roomtypeA").textContent
+                console.log(price)
+                console.log(day)
+                let sum = price * day
+                document.querySelector("#amount").textContent = sum
+                amount = sum
+                roomType = "1" // A
+            })
 
-    document.querySelector("#bookC").addEventListener("click", function () {
+            document.querySelector("#bookB").addEventListener("click", function () {
 
-      let price = parseInt(document.querySelector("#priceC").textContent)
-      let day = parseInt(document.getElementById("totalDay").textContent)
-      document.querySelector(".choosetype").textContent = document.querySelector(".roomtypeC").textContent
-      console.log(price)
-      console.log(day)
-      let sum = price * day
-      document.querySelector("#amount").textContent = sum
-    })
+                let price = parseInt(document.querySelector("#priceB").textContent)
+                let day = parseInt(document.getElementById("totalDay").textContent)
+                document.querySelector(".choosetype").textContent = document.querySelector(".roomtypeB").textContent
+                console.log(price)
+                console.log(day)
+                let sum = price * day
+                document.querySelector("#amount").textContent = sum
+                amount = sum
+                roomType = "2" // B
 
-    document.querySelector("#bookD").addEventListener("click", function () {
+            })
 
-      let price = parseInt(document.querySelector("#priceD").textContent)
-      let day = parseInt(document.getElementById("totalDay").textContent)
-      document.querySelector(".choosetype").textContent = document.querySelector(".roomtypeD").textContent
-      console.log(price)
-      console.log(day)
-      let sum = price * day
-      document.querySelector("#amount").textContent = sum
-    })
+            document.querySelector("#bookC").addEventListener("click", function () {
 
-  </script>
+                let price = parseInt(document.querySelector("#priceC").textContent)
+                let day = parseInt(document.getElementById("totalDay").textContent)
+                document.querySelector(".choosetype").textContent = document.querySelector(".roomtypeC").textContent
+                console.log(price)
+                console.log(day)
+                let sum = price * day
+                document.querySelector("#amount").textContent = sum
+                amount = sum
 
-  <script>
+                roomType = "3" // C
 
-    let a = document.querySelector("#dateform")
-    a.addEventListener("submit", async function (event) {
-      event.preventDefault()
+            })
 
-      form = {}
+            document.querySelector("#bookD").addEventListener("click", function () {
 
-      form["checkindate"] = a.in.value
-      form["checkoutdate"] = a.out.value
+                let price = parseInt(document.querySelector("#priceD").textContent)
+                let day = parseInt(document.getElementById("totalDay").textContent)
+                document.querySelector(".choosetype").textContent = document.querySelector(".roomtypeD").textContent
+                console.log(price)
+                console.log(day)
+                let sum = price * day
+                document.querySelector("#amount").textContent = sum
+                amount = sum
 
-      let req = {
-        method: "post",
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form)
-      }
-      let res = await fetch("/checkava", req)
+                roomType = "4" // D
 
-      let roomAva = await res.json()
+            })
 
-      console.log(roomAva);
 
-      //                0     1    2    3    4
-      let searchArr = ["-1", "A", "B", "C", "D"]
-      let roomCount = roomAva.map(v => v.type_id); // [4,4,4,4,3,3,3,2,2]
+            console.log(dateNow, checkoutDate, totalday, amount)
 
-      let roomCointMap = {};
-      for (let v of roomCount) {
-        if (v in roomCointMap) {
-          roomCointMap[v] += 1
-        }
-        else {
-          roomCointMap[v] = 1
-        }
-      }
 
-      console.log(roomCointMap);
+            const btn = document.getElementById("handinInfo");
+            btn.addEventListener("click", async () => {
 
+                console.log(dateNow.value, checkoutDate.value, totalday.textContent, amount, )
+                
+                let req = {
+                    method: "post",
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        dateNow: dateNow.value,
+                        checkoutDate: checkoutDate.value,
+                        totalday: totalday.textContent,
+                        roomType: roomType
+                        // amount,
+                    }
+                    )
+                }
+                
+                let res = await fetch("/blockroom", req)     
+                let result = await res.json()
 
+                location.href = `/payment.html?dateArrive=${dateNow.value}&dateLater=${checkoutDate.value}&daylength=${totalday.textContent}$price=${amount}`;
 
-      for (let i = 1; i < 5; i++) {
+            });
 
+        </script>
 
 
 
 
-        // check if that room exist on the object
-        // AND (have that type on the object but room count is 0)
-        if (!roomCointMap[i] || (!!roomCointMap[i] && roomCointMap[i] <= 0)) {
-          document.getElementById("book" + searchArr[i]).classList.add("vis")
-        }
-        else {
-          document.getElementById("book" + searchArr[i]).classList.remove("vis")
-        }
-      }
 
 
+        <!-- <script src="cal.js"></script> -->
 
 
-    })
 
+        <script src="header.js"></script>
 
+    </body>
 
-
-
-  </script>
-
-  <script>
-    console.log('here');
-    main()
-    async function main() {
-      // should be inside window.onload
-      console.log("window on load")
-      const searchParams = new URLSearchParams(location.search)
-      console.log(searchParams);
-      const dateArrive = searchParams.get("checkIn");
-      const dateLater = searchParams.get("checkOutDate");
-      console.log(dateArrive, dateLater);
-      document.querySelector("#checkinDate").value = dateArrive
-      document.querySelector("#checkoutDate").value = dateLater
-      document.querySelector("#checkinDate1").value = dateArrive
-      document.querySelector("#checkoutDate1").value = dateLater
-
-      let one_day = 1000 * 60 * 60 * 24;
-      let d1 = new Date(document.getElementById("checkinDate").value);
-      let d2 = new Date(document.getElementById("checkoutDate").value);
-      let result = d2 - d1;
-      let total = result / one_day;
-      document.getElementById("totalDay").textContent = total;
-
-      /////////window onload search /////////
-
-      form = {}
-
-      form["checkindate"] = a.in.value
-      form["checkoutdate"] = a.out.value
-
-      let req = {
-        method: "post",
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form)
-      }
-      let res = await fetch("/checkava", req)
-      let roomAva = await res.json()
-
-      console.log(roomAva);
-
-      let searchArr = ["-1", "A", "B", "C", "D"]
-      let roomCount = roomAva.map(v => v.type_id); // [4,4,4,4,3,3,3,2,2]
-
-      let roomCointMap = {};
-      for (let v of roomCount) {
-        if (v in roomCointMap) {
-          roomCointMap[v] += 1
-        }
-        else {
-          roomCointMap[v] = 1
-        }
-      }
-
-      console.log(roomCointMap);
-
-      for (let i = 1; i < 5; i++) {
-
-        // let currentRoom = roomAva[i];
-        // console.log(roomAva[i + ""] + "room available")
-        // check if that room exist on the object
-        // AND (have that type on the object but room count is 0)
-        if (!roomCointMap[i] || (!!roomCointMap[i] && roomCointMap[i] <= 0)) {
-          document.getElementById("book" + searchArr[i]).classList.add("vis")
-        }
-      }
-
-
-
-    };
-  </script>
-
-
-
-  <script>
-    let dateNow = document.querySelector("#checkinDate1")
-    let checkoutDate = document.querySelector("#checkoutDate1")
-    let totalday = document.querySelector("#totalDay")
-    let amount = 0;
-    console.log(dateNow)
-    console.log(checkoutDate)
-    console.log(totalday)
-    console.log(amount)
-
-    document.querySelector("#bookA").addEventListener("click", function () {
-
-      let price = parseInt(document.querySelector("#priceA").textContent)
-      let day = parseInt(document.getElementById("totalDay").textContent)
-      document.querySelector(".choosetype").textContent = document.querySelector(".roomtypeA").textContent
-      console.log(price)
-      console.log(day)
-      let sum = price * day
-      document.querySelector("#amount").textContent = sum
-      amount = sum
-    })
-
-    document.querySelector("#bookB").addEventListener("click", function () {
-
-      let price = parseInt(document.querySelector("#priceB").textContent)
-      let day = parseInt(document.getElementById("totalDay").textContent)
-      document.querySelector(".choosetype").textContent = document.querySelector(".roomtypeB").textContent
-      console.log(price)
-      console.log(day)
-      let sum = price * day
-      document.querySelector("#amount").textContent = sum
-      amount = sum
-    })
-
-    document.querySelector("#bookC").addEventListener("click", function () {
-
-      let price = parseInt(document.querySelector("#priceC").textContent)
-      let day = parseInt(document.getElementById("totalDay").textContent)
-      document.querySelector(".choosetype").textContent = document.querySelector(".roomtypeC").textContent
-      console.log(price)
-      console.log(day)
-      let sum = price * day
-      document.querySelector("#amount").textContent = sum
-      amount = sum
-    })
-
-    document.querySelector("#bookD").addEventListener("click", function () {
-
-      let price = parseInt(document.querySelector("#priceD").textContent)
-      let day = parseInt(document.getElementById("totalDay").textContent)
-      document.querySelector(".choosetype").textContent = document.querySelector(".roomtypeD").textContent
-      console.log(price)
-      console.log(day)
-      let sum = price * day
-      document.querySelector("#amount").textContent = sum
-      amount = sum
-    })
-
-
-    console.log(dateNow, checkoutDate, totalday, amount)
-
-
-    const btn = document.getElementById("handinInfo");
-    btn.addEventListener("click", () => {
-
-      console.log(dateNow.value, checkoutDate.value, totalday.textContent, amount)
-      location.href = `/payment.html?dateArrive=${dateNow.value}&dateLater=${checkoutDate.value}&daylength=${totalday.textContent}$price=${amount}`;
-
-      // console.log(dateNow.value,dateLater.value,totalday.textContent,amount)
-      // location.href = `/payment.html?dateArrive=${dateNow}&dateLater=${dateLater}&daylength=${totalday}$price=${amount}`;
-
-      // console.log(dateNow.value, dateLater.value, totalday.textContent, amount)
-      // location.href = `/payment.html?dateArrive=${dateNow}&dateLater=${dateLater}&daylength=${totalday}$price=${amount}`;
-
-    });
-
-  </script>
-
-
-
-
-  <script src="cal.js"></script>
-</body>
-
-</html>
-    <script src="header.js"></script>
-    <script src="cal.js"></script>
-  </body>
 </html>
