@@ -68,7 +68,7 @@ bookingroute.post("/blockroom", async function (req, res) {
   let money = req.body.totalprice; ////important ///////
   let ref = Math.ceil(Math.random() * 99999999);
   console.log(ref);
-  await client.query(
+  let roomid = await client.query(
     /* sql */ `SELECT id
   FROM room
   WHERE id NOT IN (
