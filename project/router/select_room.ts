@@ -64,11 +64,11 @@ bookingroute.post("/blockroom", async function (req, res) {
   let stay = req.body.dateNow;
   let go = req.body.checkoutDate;
   let id = req.body.roomType;
-  // let date = new Date(); //////important/////
-  // let money = req.body.totalprice; ////important ///////
+  let date = new Date(); //////important/////
+  let money = req.body.totalprice; ////important ///////
   let ref = Math.ceil(Math.random() * 99999999);
   console.log(ref);
-  await client.query(
+  let roomid = await client.query(
     /* sql */ `SELECT id
   FROM room
   WHERE id NOT IN (
@@ -86,10 +86,10 @@ bookingroute.post("/blockroom", async function (req, res) {
   );
   // console.log(roomid.rows[0].id);
 
-  //******** */ client.query(
-  //   `INSERT INTO booking_record (room_id,user_id,check_in_date,check_out_date,lock_time,final_price,ref_number)VALUES($1,$2,$3,$4,$5,$6,$7)`,
-  //   [roomid.rows[0].id, 2, stay, go, date, money, ref]
-  // );
+  client.query(
+    `INSERT INTO booking_record (room_id,user_id,check_in_date,check_out_date,lock_time,final_price,ref_number)VALUES($1,$2,$3,$4,$5,$6,$7)`,
+    [roomid.rows[0].id, 2, stay, go, date, money, ref]
+  );
 
   res.json("success handin info");
 });
