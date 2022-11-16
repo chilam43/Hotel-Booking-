@@ -64,7 +64,7 @@ bookingroute.post("/blockroom", async function (req, res) {
   let stay = req.body.dateNow;
   let go = req.body.checkoutDate;
   let id = req.body.roomType;
-  let date = new Date(); //////important/////
+  let date = new Date(); //////important/////  +2 hors
   let money = req.body.totalprice; ////important ///////
   let ref = Math.ceil(Math.random() * 99999999);
   console.log(ref);
