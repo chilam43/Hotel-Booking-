@@ -542,11 +542,14 @@
 
             // console.log(dateNow, checkoutDate, totalday, amount)
 
-            // const total = amount * 100
-            // const roomTypeType = document.querySelector(".choosetype").textContent
+            
+            
             const btn = document.getElementById("handinInfo");
             btn.addEventListener("click", async () => {
-                location.href = `/payment.html?dateArrive=${dateNow.value}&dateLater=${checkoutDate.value}&daylength=${totalday.textContent}&price=${amount}&roomType=${roomTypeType}`;
+                let total = amount * 100
+                let roomTypeType = document.querySelector(".choosetype").textContent
+                location.href = `/payment.html?dateArrive=${dateNow.value}&dateLater=${checkoutDate.value}&daylength=${totalday.textContent}&price=${total}&roomType=${roomTypeType}`;
+                
                 console.log(dateNow.value, checkoutDate.value, totalday.textContent, amount, )
                 
                 let req = {
@@ -565,8 +568,7 @@
                 let res = await fetch("/blockroom", req)     
                 let result = await res.json()
 
-                //***** NO DEL  location.href = `/payment.html?dateArrive=${dateNow.value}&dateLater=${checkoutDate.value}&daylength=${totalday.textContent}$price=${amount}`;
-
+                location.href = `/payment.html?dateArrive=${dateNow.value}&dateLater=${checkoutDate.value}&daylength=${totalday.textContent}&price=${amount}&roomType=${roomType}&ref=${result}`;
             });
 
         </script>
@@ -576,7 +578,7 @@
 
 
 
-        <!-- <script src="cal.js"></script> -->
+        <!-- <script src="cal.js"></script> yo--> 
 
 
 
