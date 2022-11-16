@@ -5,12 +5,23 @@ const checkIn = (url.searchParams.get('dateArrive'))
 const checkOut = (url.searchParams.get('dateLater'))
 const totalDate = parseInt(url.searchParams.get('daylength'))
 const roomType = url.searchParams.get('roomType')
+const bookingRef = url.searchParams.get('roomType')
 
 document.querySelector("#checkinDate1").value = checkIn;
 document.querySelector("#checkoutDate1").value = checkOut;
 document.querySelector("#totalDay").textContent = totalDate;
 document.querySelector("#amount").textContent = amount;
 document.querySelector(".choosetype").textContent = roomType;
+
+
+const details = await fetch("/details", {
+    method: 'post',
+    headers: {
+        'Content-type': 'application/json'
+    },
+    body: JSON.stringify({ bookingRef })
+
+})
 // toString(checkIn)
 // toString(checkOut)
 // console.log(amount);
