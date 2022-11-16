@@ -1,6 +1,7 @@
 import bodyParser from "body-parser";
 import express from "express";
 import { stripe } from "../server"
+import { client } from "../db";
 
 export const paymentHookRouter = express.Router();
 
@@ -15,17 +16,22 @@ paymentHookRouter.post('/hooks', bodyParser.raw({ type: "application/json" }), a
     // let event;
 
     try {
-        event = stripe.webhooks.constructEvent(payload, sig, signingsecret)
+        /* event = */ stripe.webhooks.constructEvent(payload, sig, signingsecret)
     } catch (error: any) {
         console.log(error.message)
         res.status(400).json({ success: false })
         return
     }
-
+    // let amount = payload.amount;
+    // how to get the right ID? 
+    // how to put the final price
     // console.log(event.type)
     // console.log(event.data.object)
     // console.log(event.data.object.id)
-
+    client.query(/* sql */
+        `update booking_record set final_price=$1, payment_time=NOW() where id=$2`,
+        [10000, 1]
+    );
 
     res.json({
         success: true
