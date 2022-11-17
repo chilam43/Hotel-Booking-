@@ -9,13 +9,12 @@ import { bookingroute } from "./router/select_room";
 import { landing } from "./router/landingRouter";
 import { client } from "./db";
 import { paymentHookRouter } from "./router/paymentHookRouter";
-
+import { sendemailRountes } from "./router/send_email";
 
 client.connect();
-require("dotenv").config()
-export const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY) // payment
+require("dotenv").config();
+export const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY); // payment
 const app = express();
-
 
 app.use(
   expressSession({
@@ -41,19 +40,17 @@ app.use(express.json());
 
 // app.use(SessionMiddleware);
 
-
 app.use(express.static("public"));
 app.use(userRoutes);
 app.use(landing);
 app.use(bookingroute);
-app.use(paymentHookRouter)
-
+app.use(paymentHookRouter);
+app.use(sendemailRountes);
 // payment
 app.post("/create-payment-intent", async (req, res) => {
   try {
-
     const { amount } = req.body;
-    console.log('amount received', amount);
+    console.log("amount received", amount);
     // Create a PaymentIntent with the order amount and currency
 
     const paymentIntent = await stripe.paymentIntents.create({
@@ -70,13 +67,10 @@ app.post("/create-payment-intent", async (req, res) => {
   } catch (error) {
     console.log(error);
     res.send({
-      clientSecret: null
+      clientSecret: null,
     });
-
   }
-
 });
-
 
 let port = 8030;
 app.listen(port, () => {
