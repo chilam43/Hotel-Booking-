@@ -576,7 +576,6 @@
             btn.addEventListener("click", async () => {
                 let total = amount * 100
                 let roomTypeType = document.querySelector(".choosetype").textContent
-                location.href = `/payment.html?dateArrive=${dateNow.value}&dateLater=${checkoutDate.value}&daylength=${totalday.textContent}&price=${total}&roomType=${roomTypeType}`;
                 
                 console.log(dateNow.value, checkoutDate.value, totalday.textContent, amount, )
                 
@@ -596,7 +595,7 @@
                 let res = await fetch("/blockroom", req)     
                 let result = await res.json()
 
-                location.href = `/payment.html?dateArrive=${dateNow.value}&dateLater=${checkoutDate.value}&daylength=${totalday.textContent}&price=${amount}&roomType=${roomType}&ref=${result}`;
+                location.href = `/payment.html?dateArrive=${dateNow.value}&dateLater=${checkoutDate.value}&daylength=${totalday.textContent}&price=${total}&roomType=${roomTypeType}&ref=${result}`;
             });
 
         </script>
