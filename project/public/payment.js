@@ -103,6 +103,8 @@ async function handleSubmit(e) {
     e.preventDefault();
     setLoading(true);
 
+    // fetch
+
     const { error } = await stripe.confirmPayment({
         elements,
         confirmParams: {
