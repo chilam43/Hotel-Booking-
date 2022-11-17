@@ -19,6 +19,8 @@ userRoutes.post("/register", async (req, res) => {
     checkBox1,
     checkBox2,
   } = req.body;
+  console.log("body :", req.body);
+
   try {
     if (!title) {
       res.status(400);
@@ -50,13 +52,14 @@ userRoutes.post("/register", async (req, res) => {
         msg: "confirmPassword do not match password",
       });
     }
-    if (checkBox1 != true && checkBox2 != true) {
+    if (!checkBox1 || !checkBox2) {
       res.status(400);
       return res.json({
         status: true,
         msg: "Please check the ACKNOWLEDGMENT",
       });
     }
+
     let hash_pw = await hashPassword(password);
 
     await client.query(

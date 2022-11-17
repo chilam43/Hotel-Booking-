@@ -5,23 +5,29 @@ const checkIn = (url.searchParams.get('dateArrive'))
 const checkOut = (url.searchParams.get('dateLater'))
 const totalDate = parseInt(url.searchParams.get('daylength'))
 const roomType = url.searchParams.get('roomType')
-const bookingRef = url.searchParams.get('roomType')
+const ref = url.searchParams.get('ref')
+const amount10 = amount / 100
 
 document.querySelector("#checkinDate1").value = checkIn;
 document.querySelector("#checkoutDate1").value = checkOut;
 document.querySelector("#totalDay").textContent = totalDate;
-document.querySelector("#amount").textContent = amount;
+document.querySelector("#amount").textContent = amount10;
 document.querySelector(".choosetype").textContent = roomType;
 
+// getDetail()
 
-const details = await fetch("/details", {
-    method: 'post',
-    headers: {
-        'Content-type': 'application/json'
-    },
-    body: JSON.stringify({ bookingRef })
+// async function getDetail() {
+//     await fetch("/details", {
+//         method: 'POST',
+//         headers: {
+//             'Content-type': 'application/json'
+//         },
+//         body: JSON.stringify({ ref })
 
-})
+//     })
+//     res.json()
+// }
+
 // toString(checkIn)
 // toString(checkOut)
 // console.log(amount);
@@ -62,7 +68,7 @@ const details = await fetch("/details", {
 const stripe = Stripe("pk_test_51IxvCvAcUj5oPjUgoHNF5W3eWnn541otOmO1K10MrNFLD0GQw6tWO6ZzUIGG3mr6tppc8s2DDVX0x8oTvn6OzNZw00qb58QrQJ");
 
 // The items the customer wants to buy
-const items = [{ checkIn, checkOut, totalDate, roomType }];
+const items = [{ /*checkIn, checkOut, totalDate, roomType*/ ref }];
 
 let elements;
 
@@ -101,7 +107,8 @@ async function handleSubmit(e) {
         elements,
         confirmParams: {
             // Make sure to change this to your payment completion page
-            return_url: "http://localhost:8030/paymemt-success.html",
+            return_url: `http://localhost:8030/paymemt-success.html?refid=${ref}`,
+            receipt_email: document.getElementById("emailAddress").value
 
         },
     });
@@ -175,6 +182,22 @@ function setLoading(isLoading) {
         document.querySelector("#button-text").classList.remove("hidden");
     }
 }
+
+// Reemo
+// let myPayment = document.getElementById("myPayment")
+// myPayment.addEventListener("submit", async (e) => {
+//     e.preventDefault();
+
+//     const response = await fetch("/create-payment-intent-layout", {
+//         method: "POST",
+//         headers: { "Content-Type": "application/json" },
+//         body: JSON.stringify({ items: "77777777" }),
+//     });
+
+//     const { clientSecret } = await response.json();
+
+
+// })
 
 
 
