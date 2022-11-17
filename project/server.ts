@@ -46,6 +46,8 @@ app.use(express.static("public"));
 app.use(userRoutes);
 app.use(landing);
 app.use(bookingroute);
+app.use(sendemailRountes);
+
 
 // payment1
 // paymentHookRouter.post("/details", function (req, res) {
