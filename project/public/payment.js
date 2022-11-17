@@ -6,11 +6,12 @@ const checkOut = (url.searchParams.get('dateLater'))
 const totalDate = parseInt(url.searchParams.get('daylength'))
 const roomType = url.searchParams.get('roomType')
 const ref = url.searchParams.get('ref')
+const amount10 = amount / 100
 
 document.querySelector("#checkinDate1").value = checkIn;
 document.querySelector("#checkoutDate1").value = checkOut;
 document.querySelector("#totalDay").textContent = totalDate;
-document.querySelector("#amount").textContent = amount;
+document.querySelector("#amount").textContent = amount10;
 document.querySelector(".choosetype").textContent = roomType;
 
 // getDetail()

@@ -10,6 +10,15 @@ bookingroute.post("/checkava", async function (req, res) {
   let go = req.body.checkoutdate;
   console.log("this is the in " + stay);
   console.log("this is the out" + go);
+
+  // now: 16:23
+  // assume lock_time = 16:10
+  // is avaiable now
+
+  // now: 16:23
+  // assume lock_time = 16:50
+  // is NOT avaiable now
+
   let data = await client.query(
     /* sql */ `SELECT room.*
 FROM room
@@ -22,7 +31,11 @@ WHERE id NOT IN (
         OR check_out_date::date <= $2::date
     )
     AND payment_time is NULL
-    OR (now()::timestamp < lock_time::timestamp AND payment_time is NULL)
+    AND (
+      now()::timestamp < lock_time::timestamp 
+      AND payment_time is NULL 
+      AND cancel_time is NULL
+    )
 
     UNION
 
@@ -82,7 +95,7 @@ bookingroute.post("/blockroom", async function (req, res) {
   let id = req.body.roomType;
   let date = new Date();
   let digit = date.getTime();
-  let newtime = new Date(digit + 30000 * 40);
+  let newtime = new Date(digit + 30000 * 20);
   let money = req.body.totalprice; ////important ///////
   let ref = Math.ceil(Math.random() * 99999999);
   console.log(ref);
@@ -98,7 +111,10 @@ WHERE id NOT IN (
         OR check_out_date::date <= $2::date
     )
     AND payment_time is NULL
-    OR (now()::timestamp < lock_time::timestamp AND payment_time is NULL)
+    AND (
+      now()::timestamp < lock_time::timestamp 
+      AND payment_time is NULL
+    )
 
     UNION
 
