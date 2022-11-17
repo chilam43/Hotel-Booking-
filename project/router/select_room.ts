@@ -115,12 +115,13 @@ WHERE id NOT IN (
 AND type_id = $3`,
     [go, stay, id]
   );
-  console.log(roomid.rows);
+  console.log("thi is XXX " + roomid.rows);
 
   client.query(
     `INSERT INTO booking_record (room_id,user_id,check_in_date,check_out_date,lock_time,final_price,ref_number)VALUES($1,$2,$3,$4,$5,$6,$7)`,
     [roomid.rows[0].id, 2, stay, go, newtime, money, ref]
   );
+  console.log("Room ID:", roomid.rows[0].id)
 
   res.json(ref);
 });

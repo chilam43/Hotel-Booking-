@@ -1,4 +1,6 @@
 // import axios from "axios";
+// 1. stripe login 
+// 2. stripe listen --forward-to=http://localhost:8030/hooks
 import bodyParser from "body-parser";
 import express from "express";
 import { stripe } from "../server";
@@ -10,7 +12,7 @@ import { client } from "../db";
 export const paymentHookRouter = express.Router();
 
 paymentHookRouter.get("/details", async function (req) {
-  console.log(req.body);
+    console.log(req.body);
 });
 
 // const ref = paymentHookRouter.post("/details", function (req, res) {
@@ -33,9 +35,9 @@ paymentHookRouter.post('/hooks', bodyParser.raw({ type: "application/json" }), a
         event = stripe.webhooks.constructEvent(payload, sig, signingsecret)
         console.log("1:", event)
     } catch (error: any) {
-      console.log(error.message);
-      res.status(400).json({ success: false });
-      return;
+        console.log(error.message);
+        res.status(400).json({ success: false });
+        return;
     }
     // console.log("2:", event.data.object)
     const intent = event.data.object;
@@ -61,11 +63,12 @@ paymentHookRouter.post('/hooks', bodyParser.raw({ type: "application/json" }), a
 
 
             client.query(/* sql */
-                `UPDATE booking_record set final_price=$1, payment_time=NOW()::timeStamp where ref_number=$2`,
+                `UPDATE booking_record set final_price=$1, payment_time=NOW()::timeStamp, confirm_time=NOW()::timeStamp where ref_number=$2`,
                 [amount10, ref]
-
             );
             console.log("SUCCESS UPDATE")
+
+
 
             break;
         case 'charge.succeeded':
@@ -124,8 +127,8 @@ paymentHookRouter.post('/hooks', bodyParser.raw({ type: "application/json" }), a
 
     //send email
     res.json({
-      success: true,
+        success: true,
     });
-  }
+}
 );
 // use fetch to get value
