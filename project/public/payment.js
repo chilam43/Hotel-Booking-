@@ -1,5 +1,6 @@
 const url = new URL(window.location.href)
 const searchParams = new URLSearchParams(location.search)
+
 const amount = url.searchParams.get('price')
 const checkIn = (url.searchParams.get('dateArrive'))
 const checkOut = (url.searchParams.get('dateLater'))
@@ -99,11 +100,26 @@ async function initialize() {
     paymentElement.mount("#payment-element");
 }
 
+const paymentForm = document.querySelector("#payment-form")
 async function handleSubmit(e) {
     e.preventDefault();
     setLoading(true);
 
     // fetch
+
+    let formObj = {};
+    formObj["email"] = paymentForm.email.value;
+    formObj["ref"] = ref;
+
+    const createPayment = await fetch("/create-pre-payment", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formObj)
+    })
+
+    let result = await createPayment.json();
 
     const { error } = await stripe.confirmPayment({
         elements,

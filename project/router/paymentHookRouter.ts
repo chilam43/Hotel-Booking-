@@ -5,6 +5,7 @@ import bodyParser from "body-parser";
 import express from "express";
 import { stripe } from "../server";
 import { client } from "../db";
+import { sendEmailToUsers } from "./send_email";
 
 
 
@@ -40,7 +41,7 @@ paymentHookRouter.post('/hooks', bodyParser.raw({ type: "application/json" }), a
         return;
     }
     // console.log("2:", event.data.object)
-    const intent = event.data.object;
+    // const intent = event.data.object;
     const amount = event.data.object.amount;
     const ref = event.data.object.metadata.internal_ref
     console.log("REF:", ref)
@@ -66,6 +67,11 @@ paymentHookRouter.post('/hooks', bodyParser.raw({ type: "application/json" }), a
                 `UPDATE booking_record set final_price=$1, payment_time=NOW()::timeStamp, confirm_time=NOW()::timeStamp where ref_number=$2`,
                 [amount10, ref]
             );
+
+            client.query(/* sql */
+                `UPDATE payment_history set price=$1, payment_time=NOW()::timeStamp where ref_number=$2`,
+                [amount10, ref]
+            );
             console.log("SUCCESS UPDATE")
 
 
@@ -85,12 +91,23 @@ paymentHookRouter.post('/hooks', bodyParser.raw({ type: "application/json" }), a
             // Update database
             // Send email
             // Notify shipping department
+            client.query(/* sql */
+                `UPDATE booking_record set final_price=$1, payment_time=NOW()::timeStamp, confirm_time=NOW()::timeStamp where ref_number=$2`,
+                [amount10, ref]
+            );
 
-            console.log("Succeeded:", intent.id);
-            break;
-        case 'payment_intent.payment_failed':
-            const message = intent.last_payment_error && intent.last_payment_error.message;
-            console.log('Failed:', intent.id, message);
+            client.query(/* sql */
+                `UPDATE payment_history set price=$1, payment_time=NOW()::timeStamp where ref_number=$2`,
+                [amount10, ref]
+            );
+            sendEmailToUsers()
+            console.log("SUCCESS UPDATE")
+
+            //     console.log("Succeeded:", intent.id);
+            //     break;
+            // case 'payment_intent.payment_failed':
+            //     const message = intent.last_payment_error && intent.last_payment_error.message;
+            //     console.log('Failed:', intent.id, message);
             break;
     }
 

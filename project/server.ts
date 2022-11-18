@@ -9,6 +9,7 @@ import { bookingroute } from "./router/select_room";
 import { landing } from "./router/landingRouter";
 import { client } from "./db";
 import { paymentHookRouter } from "./router/paymentHookRouter";
+import { paymentRouter } from "./router/paymentRouter"
 import { sendemailRountes } from "./router/send_email";
 
 client.connect();
@@ -47,6 +48,7 @@ app.use(userRoutes);
 app.use(landing);
 app.use(bookingroute);
 app.use(sendemailRountes);
+app.use(paymentRouter)
 
 
 // payment1
