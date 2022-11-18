@@ -10,3 +10,4 @@ settings.json
 playground-public
 .test.js
 .tset.html
+package-lock.json
