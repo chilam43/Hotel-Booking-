@@ -9,7 +9,8 @@ import { bookingroute } from "./router/select_room";
 import { landing } from "./router/landingRouter";
 import { client } from "./db";
 import { paymentHookRouter } from "./router/paymentHookRouter";
-import { sendemailRountes } from "./router/send_email";
+import { paymentRouter } from "./router/paymentRouter";
+// import { sendmailRountes } from "./router/send_email";
 
 client.connect();
 require("dotenv").config();
@@ -24,7 +25,7 @@ app.use(
   })
 );
 
-app.use(paymentHookRouter)
+app.use(paymentHookRouter);
 
 type User = {
   id: number;
@@ -46,8 +47,8 @@ app.use(express.static("public"));
 app.use(userRoutes);
 app.use(landing);
 app.use(bookingroute);
-app.use(sendemailRountes);
-
+// app.use(sendmailRountes);
+app.use(paymentRouter);
 
 // payment1
 // paymentHookRouter.post("/details", function (req, res) {
@@ -85,10 +86,9 @@ app.use(sendemailRountes);
 // payment2
 app.post("/create-payment-intent", async (req, res) => {
   try {
-
     const { amount, items } = req.body;
-    console.log('amount received', amount);
-    console.log('items:', items);
+    console.log("amount received", amount);
+    console.log("items:", items);
     // Create a PaymentIntent with the order amount and currency
 
     const paymentIntent = await stripe.paymentIntents.create({
@@ -99,8 +99,8 @@ app.post("/create-payment-intent", async (req, res) => {
       },
       metadata: {
         uid: req.session["id"] ?? -1,
-        internal_ref: items[0].ref
-      }
+        internal_ref: items[0].ref,
+      },
     });
 
     res.send({

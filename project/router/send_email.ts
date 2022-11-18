@@ -1,16 +1,19 @@
-import express from "express";
 const nodemailer = require("nodemailer");
 // import nodemailer from "nodemailer";
+import { client } from "../db";
 
-export const sendemailRountes = express.Router();
+export async function sendEmailToUsers(ref_num: string) {
+  let paymentRecord = await client.query(
+    /* sql */
+    `select payment_history.ref_number, payment_history.email, booking_record.check_in_date, booking_record.check_out_date
+    from payment_history 
+    JOIN booking_record on booking_record.ref_number = payment_history.ref_number
+    where payment_history.ref_number = $1 `,
+    [ref_num]
+  );
 
-sendemailRountes.post("/email", async (req, res) => {
-  // async..await is not allowed in global scope, must use a wrapper
-  // Generate test SMTP service account from ethereal.email
-  // Only needed if you don't have a real mail account for testing
-  // let testAccount = await nodemailer.createTestAccount();
+  console.log("paymentRecord:", paymentRecord);
 
-  // create reusable transporter object using the default SMTP transport
   let transporter = nodemailer.createTransport({
     host: "smtp-mail.outlook.com", // hostname
     service: "outlook", // service name
@@ -24,22 +27,15 @@ sendemailRountes.post("/email", async (req, res) => {
       pass: "iwant6969", // generated ethereal password
     },
   });
-
+  console.log(paymentRecord.rows)
   // send mail with defined transport object
   let info = await transporter.sendMail({
     from: "hotelbooking6969@outlook.com", // sender address
-    to: "donnytkf@gmail.com", // list of receivers
-    subject: "Hello ✔", // Subject line
-    text: "69?", // plain text body
-    html: "<b>Hello world?</b>", // html body
+    to: paymentRecord.rows[0].email, // list of receivers
+    subject: "Thank You For your booking", // Subject line
+    text: `ref no. ${paymentRecord.rows[0].ref_number} , check in date ${paymentRecord.rows[0].check_in_date} , check out date ${paymentRecord.rows[0].check_out_date}`, // plain text body
+    html: `<b>Hello world?</b> <div>ref no. ${paymentRecord.rows[0].ref_number} , check in date ${paymentRecord.rows[0].check_in_date} , check out date ${paymentRecord.rows[0].check_out_date}</div>`, // html body
   });
 
   console.log("Message sent: %s", info.messageId);
-  // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-
-  // Preview only available when sending through an Ethereal account
-  // console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-  // // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
-
-  res.json({});
-});
+}
