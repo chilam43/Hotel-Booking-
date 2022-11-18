@@ -271,7 +271,7 @@
                         } else {
                             document.getElementById("checkoutDate").value = info.dateStr;
                             document.getElementById("checkoutDate1").value = info.dateStr;
-
+                             i=true
                             if (
                                 document.getElementById("checkinDate").value >
                                 document.getElementById("checkoutDate").value
@@ -292,19 +292,44 @@
         </script>
         <script>
 
-            const target = document.querySelector('.checkbutt')
 
-            document.addEventListener('click', (event) => {
-                const withinBoundaries = event.composedPath().includes(target)
+document.querySelector('.checkbutt').addEventListener('click', () => { document.querySelector(".cal").classList.remove("vis")})
 
-                if (withinBoundaries) {
-                    console.log("click")
-                    document.querySelector(".cal").classList.remove("vis")
-                } else {
-                    console.log("remove")
-                    document.querySelector(".cal").classList.add("vis")
-                }
-            })
+document.body.addEventListener('click',event=>{
+  console.log(event)
+  let target =event.target
+  if(target.matches('.checkbutt')){
+    return
+  }
+  let cal = document.querySelector('.cal')
+  while(target){
+    if(target == cal){
+      // console.log('is cal')
+      return
+    }
+    target = target.parentElement
+  }
+  // console.log('not cal')
+  cal.classList.add('vis')
+})
+
+// document.addEventListener('click',function(){
+//   document.querySelector(".cal").classList.add("vis")
+// },true);
+    
+            // const target = document.querySelector('.checkbutt')
+
+            // document.addEventListener('click', (event) => {
+            //     const withinBoundaries = event.composedPath().includes(target)
+
+            //     if (withinBoundaries) {
+            //         console.log("click")
+            //         document.querySelector(".cal").classList.remove("vis")
+            //     } else {
+            //         console.log("remove")
+            //         document.querySelector(".cal").classList.add("vis")
+            //     }
+            // })
         </script>
 
 
