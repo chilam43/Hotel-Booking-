@@ -4,7 +4,11 @@ import { client } from "../db";
 
 export async function sendEmailToUsers(ref_num: string) {
   let paymentRecord = await client.query(
-    /* sql */ `select ref_number from payment_history where ref_number = $1`,
+    /* sql */
+    `select ref_number 
+    from payment_history 
+    JOIN ref_number on booking_record.ref_number = ref_num
+    where ref_number = $1 `,
     [ref_num]
   );
 
@@ -28,8 +32,8 @@ export async function sendEmailToUsers(ref_num: string) {
   let info = await transporter.sendMail({
     from: "hotelbooking6969@outlook.com", // sender address
     to: paymentRecord.rows[0].email, // list of receivers
-    subject: "Hello ✔", // Subject line
-    text: "69?", // plain text body
+    subject: "Thank You For your booking", // Subject line
+    text: `ref no. ${paymentRecord.rows[0].ref_number} , check in date ${paymentRecord.rows[0].check_in_date} , check out date ${paymentRecord.rows[0].check_out_date}`, // plain text body
     html: "<b>Hello world?</b>", // html body
   });
 
