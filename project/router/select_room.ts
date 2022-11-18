@@ -43,11 +43,23 @@ WHERE id NOT IN (
     FROM booking_record
     JOIN room on booking_record.room_id = room.id
     WHERE payment_time is NOT NULL
-    AND NOT (
+    AND NOT(
         check_in_date::date >= $1::date
         OR check_out_date::date <= $2::date
     )
+    AND cancel_time is NULL
+
+
+    UNION
+
+    SELECT room.id
+    FROM booking_record
+    JOIN room on booking_record.room_id = room.id
     AND cancel_time is NOT NULL
+    AND (
+        check_in_date::date >= $1::date
+        OR check_out_date::date <= $2::date
+    )
 
 )`,
     [go, stay]
@@ -122,11 +134,23 @@ WHERE id NOT IN (
     FROM booking_record
     JOIN room on booking_record.room_id = room.id
     WHERE payment_time is NOT NULL
-    AND NOT (
+    AND NOT(
         check_in_date::date >= $1::date
         OR check_out_date::date <= $2::date
     )
+    AND cancel_time is NULL
+
+
+    UNION
+
+    SELECT room.id
+    FROM booking_record
+    JOIN room on booking_record.room_id = room.id
     AND cancel_time is NOT NULL
+    AND(
+        check_in_date::date >= $1::date
+        OR check_out_date::date <= $2::date
+    )
 )
 AND type_id = $3`,
     [go, stay, id]
@@ -135,7 +159,7 @@ AND type_id = $3`,
 
   client.query(
     `INSERT INTO booking_record (room_id,user_id,check_in_date,check_out_date,lock_time,final_price,ref_number)VALUES($1,$2,$3,$4,$5,$6,$7)`,
-    [roomid.rows[0].id, 2, stay, go, newtime, money, ref]
+    [roomid.rows[0].id, req.session.user?.id, stay, go, newtime, money, ref]
   );
   console.log("Room ID:", roomid.rows[0].id)
 
