@@ -166,11 +166,12 @@ VALUES (
 CREATE TABLE payment_history(
     id SERIAL PRIMARY KEY,
     user_id INTEGER,
-    payment_date timestamp,
+    payment_time timestamp,
     ref_number varchar(255),
     stripe_ref_number varchar(255),
     email varchar(255),
     name varchar(255),
+    price Integer,
     create_at timestamp default NOW(),
     status varchar(255)
 );
