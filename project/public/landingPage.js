@@ -145,16 +145,7 @@ document
     // document.querySelector("#contact-result").textContent = result;
   });
 
-checkAvailability.addEventListener("click", async function () {
-  // // window.location = path.join(__dirname, "/select_room.html")
-  // const checkAva = await fetch("/search", {
-  //     method: "POST",
-  // });
 
-  location.href = "/select_room.html";
-});
-
-// sweetAlert
 
 const currentForm = document.querySelector("#form-check-availability");
 currentForm.addEventListener("submit", (e) => {
@@ -162,6 +153,21 @@ currentForm.addEventListener("submit", (e) => {
 
   let checkInDate = currentForm.checkIn.value;
   let checkOutDate = currentForm.checkOut.value;
+
+  // console.log(checkInDate, checkOutDate);
+
+  // if (!checkInDate || !checkOutDate) {
+  //   alert("Missing date input")
+  //   return
+  // }
+  // location.href = `/select_room.html?checkIn=${checkInDate}&checkOutDate=${checkOutDate}`;
+
+  console.log(checkInDate, checkOutDate);
+  if (!checkInDate && !checkOutDate) {
+    console.log("no date");
+    location.href = `/select_room.html`
+    return
+  }
   location.href = `/select_room.html?checkIn=${checkInDate}&checkOutDate=${checkOutDate}`;
 });
 

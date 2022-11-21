@@ -494,6 +494,7 @@ document.body.addEventListener('click',event=>{
             console.log('here');
             main()
             async function main() {
+              if(searchParams.key.value=true){
                 // should be inside window.onload
                 console.log("window on load")
                 const searchParams = new URLSearchParams(location.search)
@@ -516,7 +517,8 @@ document.body.addEventListener('click',event=>{
                 /////////window onload search /////////
 
                 await getSubmitDataAndFetch(null)
-
+      
+              } 
             };
         </script>
 

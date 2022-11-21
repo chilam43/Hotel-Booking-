@@ -6,10 +6,11 @@ export let landing = express.Router();
 
 landing.post("/search-room", async (req, res) => {
 
-    const { checkIn, checkOut } = req.body;
-    console.log({ checkIn, checkOut });
+
 
     try {
+        const { checkIn, checkOut } = req.body;
+        console.log({ checkIn, checkOut });
         let date = await client.query(/* sql */ `
         SELECT room.*
         FROM room
