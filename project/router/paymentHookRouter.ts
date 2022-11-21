@@ -9,9 +9,9 @@ import { sendEmailToUsers } from "./send_email";
 
 export const paymentHookRouter = express.Router();
 
-paymentHookRouter.get("/details", async function (req) {
-  console.log(req.body);
-});
+// paymentHookRouter.get("/details", async function (req) {
+//   console.log(req.body);
+// });
 
 // const ref = paymentHookRouter.post("/details", function (req, res) {
 //     let ref = req.body;

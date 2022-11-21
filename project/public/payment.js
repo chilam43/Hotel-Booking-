@@ -109,7 +109,9 @@ async function handleSubmit(e) {
 
     let formObj = {};
     formObj["email"] = paymentForm.email.value;
+    formObj['name'] = paymentForm.username.value;
     formObj["ref"] = ref;
+    console.log("formObj:", formObj)
     // formObj["name"] = paymentForm.name.value;;
 
     const createPayment = await fetch("/create-pre-payment", {

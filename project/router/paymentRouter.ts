@@ -14,8 +14,8 @@ paymentRouter.post("/create-pre-payment", async (req, res) => {
 
     try {
 
-        let { email, ref } = req.body;
-        await client.query(`INSERT INTO payment_history (email, ref_number) VALUES ($1, $2) `, [email, ref]);
+        let { email, ref, name } = req.body;
+        await client.query(/* sql */`INSERT INTO payment_history (email, ref_number, name) VALUES ($1, $2, $3) `, [email, ref, name]);
         res.json({});
 
     }

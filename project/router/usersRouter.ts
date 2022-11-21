@@ -130,7 +130,7 @@ userRoutes.get("/currentUser", (req, res) => {
 });
 
 userRoutes.get("/logout", (req, res) => {
-  req.session.destroy(() => {});
+  req.session.destroy(() => { });
   res.json({});
 });
 
