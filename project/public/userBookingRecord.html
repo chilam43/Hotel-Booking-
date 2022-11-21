@@ -16,6 +16,10 @@
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
       crossorigin="anonymous"
     />
+    <link
+      href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css"
+      rel="stylesheet"
+    />
     <style>
       .vis {
         visibility: hidden;
@@ -73,13 +77,13 @@
           </ul>
 
           <div class="text-end">
-            <a id="loginLogoutLink" href="/login.html">
+            <span id="loginLogoutLink">
               <button
                 type="button"
                 class="whiteButton me-2"
                 id="loginLogout"
               ></button>
-            </a>
+            </span>
             <a id="userBookingRecordLink">
               <button type="button" class="brownButton" id="register"></button>
             </a>
@@ -99,6 +103,7 @@
         <th>cancel</th>
       </tr>
     </table>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
     <script src="userBookingRecord.js"></script>
     <script src="header.js"></script>
   </body>

@@ -20,6 +20,10 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css"
     />
+    <link
+      href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css"
+      rel="stylesheet"
+    />
     <!-- <link rel="stylesheet" href="./cal.css" /> -->
   </head>
   <body>
@@ -65,13 +69,13 @@
           </ul>
 
           <div class="text-end">
-            <a id="loginLogoutLink" href="/login.html">
+            <span id="loginLogoutLink">
               <button
                 type="button"
                 class="whiteButton me-2"
                 id="loginLogout"
               ></button>
-            </a>
+            </span>
             <a id="userBookingRecordLink">
               <button type="button" class="brownButton" id="register"></button>
             </a>
@@ -216,6 +220,7 @@
     </form>
     <!-- Banner  onclick="redirection()"-->
     <!-- </div> -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
     <script src="landingPage.js"></script>
     <script src="header.js"></script>
