@@ -16,6 +16,10 @@
       integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
       crossorigin="anonymous"
     />
+    <link
+      href="//cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header class="p-3 topBar">
@@ -59,14 +63,14 @@
           </ul>
 
           <div class="text-end">
-            <a id="loginLogoutLink" href="/login.html">
+            <span id="loginLogoutLink">
               <button
                 type="button"
                 class="whiteButton me-2"
                 id="loginLogout"
               ></button>
-            </a>
-            <a href="/register.html">
+            </span>
+            <a id="userBookingRecordLink">
               <button type="button" class="brownButton" id="register"></button>
             </a>
           </div>
@@ -168,6 +172,8 @@
       </div>
     </footer>
     <!-- footer end -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.js"></script>
+    2
     <script src="register.js"></script>
     <script src="header.js"></script>
   </body>
